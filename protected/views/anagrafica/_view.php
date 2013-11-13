@@ -11,9 +11,7 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-
 	<?php echo $form->errorSummary($model); ?>
-
 	
 	<table>
 		<tr>

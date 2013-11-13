@@ -3,19 +3,19 @@
 /* @var $model Contratti */
 
 $this->breadcrumbs=array(
-	'Contrattis'=>array('index'),
-	$model->id=>array('view','id'=>$model->id),
-	'Update',
+	'Contratti'=>array('index'),
+	$model->ncontratto=>array('view','id'=>$model->ncontratto),
+	'Aggiorna',
 );
 
 $this->menu=array(
-	array('label'=>'List Contratti', 'url'=>array('index')),
-	array('label'=>'Create Contratti', 'url'=>array('create')),
-	array('label'=>'View Contratti', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Contratti', 'url'=>array('admin')),
+	array('label'=>'Contratti', 'url'=>array('index')),
+	array('label'=>'Nuovo Contratto', 'url'=>array('create')),
+	array('label'=>'Dettagli Contratto', 'url'=>array('view', 'id'=>$model->id)),
+	//array('label'=>'Manage Contratti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Contratti <?php echo $model->id; ?></h1>
+<h1>Aggiorna Contratto <?php echo $model->ncontratto; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -1,47 +1,102 @@
 <?php
 /* @var $this MezziController */
-/* @var $data Mezzi */
+/* @var $model Mezzi */
+/* @var $form CActiveForm */
 ?>
 
-<div class="view">
+<div class="form">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'mezzi-form',
+	'enableAjaxValidation'=>false,
+)); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('marca')); ?>:</b>
-	<?php echo CHtml::encode($data->marca); ?>
-	<br />
+	<?php echo $form->errorSummary($model); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('modello')); ?>:</b>
-	<?php echo CHtml::encode($data->modello); ?>
-	<br />
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dettaglio Mezzo
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'marca'); ?>
+				<?php echo $form->textField($model,'marca',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'modello'); ?>
+				<?php echo $form->textField($model,'modello',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'targa'); ?>
+				<?php echo $form->textField($model,'targa',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'immatricolazione'); ?>
+				<?php echo $form->textField($model,'immatricolazione'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dati Proprietario
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'proprietario'); ?>
+				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Amministrazione
+					</div>
+				</div>
+			</td>
+			<tr>
+				<td>
+					<?php echo $form->labelEx($model,'prezzo'); ?>
+					<?php echo $form->textField($model,'prezzo',array('size'=>45,'maxlength'=>45)); ?>
+				</td>
+				<td>
+					<?php echo $form->labelEx($model,'rata'); ?>
+					<?php echo $form->textField($model,'rata'); ?>
+				</td>
+			</tr>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Note
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'note'); ?>
+				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+			</td>
+		</tr>
+	</table>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('prezzo')); ?>:</b>
-	<?php echo CHtml::encode($data->prezzo); ?>
-	<br />
+<?php $this->endWidget(); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('rata')); ?>:</b>
-	<?php echo CHtml::encode($data->rata); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('targa')); ?>:</b>
-	<?php echo CHtml::encode($data->targa); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('immatricolazione')); ?>:</b>
-	<?php echo CHtml::encode($data->immatricolazione); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('proprietario')); ?>:</b>
-	<?php echo CHtml::encode($data->proprietario); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('note')); ?>:</b>
-	<?php echo CHtml::encode($data->note); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+</div><!-- form -->

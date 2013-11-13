@@ -15,55 +15,99 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'marca'); ?>
-		<?php echo $form->textField($model,'marca',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'marca'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'modello'); ?>
-		<?php echo $form->textField($model,'modello',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'modello'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'prezzo'); ?>
-		<?php echo $form->textField($model,'prezzo',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'prezzo'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'rata'); ?>
-		<i>inserire data nel formato gg/mm/aaaa</i> <br>
-		<?php echo $form->textField($model,'rata'); ?>
-		<?php echo $form->error($model,'rata'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'targa'); ?>
-		<?php echo $form->textField($model,'targa',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'targa'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'immatricolazione'); ?>
-		<i>inserire data nel formato gg/mm/aaaa</i> <br>
-		<?php echo $form->textField($model,'immatricolazione'); ?>
-		<?php echo $form->error($model,'immatricolazione'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'proprietario'); ?>
-		<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'proprietario'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'note'); ?>
-		<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'note'); ?>
-	</div>
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dettaglio Mezzo
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'marca'); ?>
+				<?php echo $form->textField($model,'marca',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'marca'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'modello'); ?>
+				<?php echo $form->textField($model,'modello',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'modello'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'targa'); ?>
+				<?php echo $form->textField($model,'targa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'targa'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'immatricolazione'); ?>
+				<i>inserire data nel formato gg/mm/aaaa</i> <br>
+				<?php echo $form->textField($model,'immatricolazione'); ?>
+				<?php echo $form->error($model,'immatricolazione'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dati Proprietario
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'proprietario'); ?>
+				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'proprietario'); ?>
+			</td>
+			<td>
+				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Amministrazione
+					</div>
+				</div>
+			</td>
+			<tr>
+				<td>
+					<?php echo $form->labelEx($model,'prezzo'); ?>
+					<?php echo $form->textField($model,'prezzo',array('size'=>45,'maxlength'=>45)); ?>
+					<?php echo $form->error($model,'prezzo'); ?>
+				</td>
+				<td>
+					<?php echo $form->labelEx($model,'rata'); ?>
+					<i>inserire data nel formato gg/mm/aaaa</i> <br>
+					<?php echo $form->textField($model,'rata'); ?>
+					<?php echo $form->error($model,'rata'); ?>
+				</td>
+			</tr>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Note
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'note'); ?>
+				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo $form->error($model,'note'); ?>
+			</td>
+		</tr>
+	</table>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

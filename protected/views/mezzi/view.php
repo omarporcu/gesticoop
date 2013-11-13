@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Mezzi'=>array('index'),
-	$model->id,
+	$model->targa,
 );
 
 $this->menu=array(
@@ -16,9 +16,9 @@ $this->menu=array(
 );
 ?>
 
-<h1>Mezzo <?php echo $model->id; ?></h1>
+<h1>Mezzo <?php echo $model->targa; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<!--?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -31,4 +31,6 @@ $this->menu=array(
 		'proprietario',
 		'note',
 	),
-)); ?>
+)); ?-->
+
+<?php echo $this->renderPartial('_view', array('model'=>$model)); ?>

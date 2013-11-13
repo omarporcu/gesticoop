@@ -14,7 +14,6 @@
 	<p class="note">I campi con <span class="required">*</span> sono obbligatori.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
 	
 	<table>
 		<tr>

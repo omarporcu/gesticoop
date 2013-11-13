@@ -12,8 +12,8 @@
 )); ?>
 
 	<div class="row">
-		<?php echo $form->label($model,'id'); ?>
-		<?php echo $form->textField($model,'id'); ?>
+		<?php echo $form->label($model,'ncontratto'); ?>
+		<?php echo $form->textField($model,'ncontratto'); ?>
 	</div>
 
 	<div class="row">

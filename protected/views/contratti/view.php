@@ -3,22 +3,22 @@
 /* @var $model Contratti */
 
 $this->breadcrumbs=array(
-	'Contrattis'=>array('index'),
-	$model->id,
+	'Contratti'=>array('index'),
+	$model->ncontratto,
 );
 
 $this->menu=array(
-	array('label'=>'List Contratti', 'url'=>array('index')),
-	array('label'=>'Create Contratti', 'url'=>array('create')),
-	array('label'=>'Update Contratti', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Contratti', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Contratti', 'url'=>array('admin')),
+	array('label'=>'Contratti', 'url'=>array('index')),
+	array('label'=>'Nuovo Contratto', 'url'=>array('create')),
+	array('label'=>'Aggiorna Contratto', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Elimina Contratto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	//array('label'=>'Manage Contratti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>View Contratti #<?php echo $model->id; ?></h1>
+<h1>Dettaglio Contratto <?php echo $model->ncontratto; ?></h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<!--?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -31,4 +31,6 @@ $this->menu=array(
 		'provvigione',
 		'note',
 	),
-)); ?>
+)); ?-->
+
+<?php echo $this->renderPartial('_view', array('model'=>$model)); ?>

@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Contrattis',
+	'Contratti',
 );
 
 $this->menu=array(
-	array('label'=>'Create Contratti', 'url'=>array('create')),
-	array('label'=>'Manage Contratti', 'url'=>array('admin')),
+	array('label'=>'Nuovo Contratto', 'url'=>array('create')),
+	//array('label'=>'Manage Contratti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Contrattis</h1>
+<h1>Contratto</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

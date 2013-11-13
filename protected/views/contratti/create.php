@@ -3,13 +3,13 @@
 /* @var $model Contratti */
 
 $this->breadcrumbs=array(
-	'Contrattis'=>array('index'),
-	'Create',
+	'Contratti'=>array('index'),
+	'Nuovo',
 );
 
 $this->menu=array(
-	array('label'=>'List Contratti', 'url'=>array('index')),
-	array('label'=>'Manage Contratti', 'url'=>array('admin')),
+	array('label'=>'Contratti', 'url'=>array('index')),
+	//array('label'=>'Manage Contratti', 'url'=>array('admin')),
 );
 ?>
 

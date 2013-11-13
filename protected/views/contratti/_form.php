@@ -11,57 +11,105 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">I campi con <span class="required">*</span> sono obbligatori.</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'utente'); ?>
-		<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'utente'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'societa'); ?>
-		<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'societa'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'tipologia'); ?>
-		<?php echo $form->textField($model,'tipologia',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'tipologia'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'data_inizio'); ?>
-		<?php echo $form->textField($model,'data_inizio'); ?>
-		<?php echo $form->error($model,'data_inizio'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'data_fine'); ?>
-		<?php echo $form->textField($model,'data_fine'); ?>
-		<?php echo $form->error($model,'data_fine'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'ruolo'); ?>
-		<?php echo $form->textField($model,'ruolo',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'ruolo'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'provvigione'); ?>
-		<?php echo $form->textField($model,'provvigione',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'provvigione'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'note'); ?>
-		<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'note'); ?>
-	</div>
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dati Contratto
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'ncontratto'); ?>
+				<?php echo $form->textField($model,'ncontratto',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'ncontratto'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'utente'); ?>
+				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'utente'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'tipologia'); ?>
+				<?php echo $form->textField($model,'tipologia',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'tipologia'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'societa'); ?>
+				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'societa'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Inizio/Termine
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'data_inizio'); ?>
+				<i>inserire data nel formato gg/mm/aaaa</i> <br>
+				<?php echo $form->textField($model,'data_inizio'); ?>
+				<?php echo $form->error($model,'data_inizio'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'data_fine'); ?>
+				<i>inserire data nel formato gg/mm/aaaa</i> <br>
+				<?php echo $form->textField($model,'data_fine'); ?>
+				<?php echo $form->error($model,'data_fine'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Ruolo
+					</div>
+				</div>
+			</td>
+		</tr>	
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'ruolo'); ?>
+				<?php echo $form->textField($model,'ruolo',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'ruolo'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'provvigione'); ?>
+				<?php echo $form->textField($model,'provvigione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'provvigione'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Note
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'note'); ?>
+				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo $form->error($model,'note'); ?>
+			</td>
+		</tr>
+	</table>
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'tbl_contratti':
  * @property integer $id
+ * @property string $ncontratto
  * @property string $utente
  * @property string $societa
  * @property string $tipologia
@@ -42,11 +43,11 @@ class Contratti extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('utente, societa, tipologia, ruolo, provvigione', 'length', 'max'=>45),
+			array('ncontratto, utente, societa, tipologia, ruolo, provvigione', 'length', 'max'=>45),
 			array('data_inizio, data_fine, note', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, utente, societa, tipologia, data_inizio, data_fine, ruolo, provvigione, note', 'safe', 'on'=>'search'),
+			array('id, ncontratto, utente, societa, tipologia, data_inizio, data_fine, ruolo, provvigione, note', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +69,7 @@ class Contratti extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'ncontratto' => 'Numero Contratto',
 			'utente' => 'Utente',
 			'societa' => 'Societa',
 			'tipologia' => 'Tipologia',
@@ -91,6 +93,7 @@ class Contratti extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('ncontratto',$this->utente,true);
 		$criteria->compare('utente',$this->utente,true);
 		$criteria->compare('societa',$this->societa,true);
 		$criteria->compare('tipologia',$this->tipologia,true);
