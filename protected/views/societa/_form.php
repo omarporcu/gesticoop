@@ -202,7 +202,7 @@
 	</table>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Crea' : 'Salva'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Salva' : 'Salva'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

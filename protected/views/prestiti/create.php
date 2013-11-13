@@ -3,16 +3,16 @@
 /* @var $model Prestiti */
 
 $this->breadcrumbs=array(
-	'Prestitis'=>array('index'),
-	'Create',
+	'Prestiti'=>array('index'),
+	'Nuovo',
 );
 
 $this->menu=array(
-	array('label'=>'List Prestiti', 'url'=>array('index')),
-	array('label'=>'Manage Prestiti', 'url'=>array('admin')),
+	array('label'=>'Prestiti', 'url'=>array('index')),
+	//array('label'=>'Manage Prestiti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Prestiti</h1>
+<h1>Nuovo Prestito</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

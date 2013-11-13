@@ -3,16 +3,16 @@
 /* @var $model Fatture */
 
 $this->breadcrumbs=array(
-	'Fattures'=>array('index'),
-	'Create',
+	'Fatture'=>array('index'),
+	'Nuova',
 );
 
 $this->menu=array(
-	array('label'=>'List Fatture', 'url'=>array('index')),
-	array('label'=>'Manage Fatture', 'url'=>array('admin')),
+	array('label'=>'Fatture', 'url'=>array('index')),
+	//array('label'=>'Manage Fatture', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Create Fatture</h1>
+<h1>Nuova Fattura</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

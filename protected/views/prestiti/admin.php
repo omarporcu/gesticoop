@@ -3,13 +3,13 @@
 /* @var $model Prestiti */
 
 $this->breadcrumbs=array(
-	'Prestitis'=>array('index'),
-	'Manage',
+	'Prestiti'=>array('index'),
+	//'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Prestiti', 'url'=>array('index')),
-	array('label'=>'Create Prestiti', 'url'=>array('create')),
+	//array('label'=>'List Prestiti', 'url'=>array('index')),
+	array('label'=>'Nuovo Prestito', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -26,14 +26,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Prestitis</h1>
+<h1>Prestiti</h1>
 
-<p>
+<!--p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
+</p-->
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Ricerca Avanzata','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -41,21 +41,21 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('prestiti/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'prestiti-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
 		'causale',
-		'totale',
-		'n_rate',
-		'scadenza',
-		'data',
-		/*
 		'societa',
 		'anagrafica',
-		'altro',
-		*/
+		'n_rate',
+		'totale',
+		//'data',
+		'scadenza',
+		//'altro',
 		array(
 			'class'=>'CButtonColumn',
 		),

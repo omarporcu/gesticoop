@@ -1,47 +1,94 @@
 <?php
 /* @var $this PrestitiController */
-/* @var $data Prestiti */
+/* @var $model Prestiti */
+/* @var $form CActiveForm */
 ?>
 
-<div class="view">
+<div class="form">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'prestiti-form',
+	'enableAjaxValidation'=>false,
+)); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('causale')); ?>:</b>
-	<?php echo CHtml::encode($data->causale); ?>
-	<br />
+	<?php echo $form->errorSummary($model); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('totale')); ?>:</b>
-	<?php echo CHtml::encode($data->totale); ?>
-	<br />
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dettaglio Prestito
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'causale'); ?>
+				<?php echo $form->textField($model,'causale',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'totale'); ?>
+				<?php echo $form->textField($model,'totale',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'n_rate'); ?>
+				<?php echo $form->textField($model,'n_rate',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'data'); ?>
+				<?php echo $form->textField($model,'data'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'scadenza'); ?>
+				<?php echo $form->textField($model,'scadenza'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Amministrazione
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'societa'); ?>
+				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'anagrafica'); ?>
+				<?php echo $form->textField($model,'anagrafica',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Note
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'altro'); ?>
+				<?php echo $form->textArea($model,'altro',array('rows'=>6, 'cols'=>50)); ?>
+			</td>
+		</tr>
+	</table>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('n_rate')); ?>:</b>
-	<?php echo CHtml::encode($data->n_rate); ?>
-	<br />
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+	</div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('scadenza')); ?>:</b>
-	<?php echo CHtml::encode($data->scadenza); ?>
-	<br />
+<?php $this->endWidget(); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('data')); ?>:</b>
-	<?php echo CHtml::encode($data->data); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('societa')); ?>:</b>
-	<?php echo CHtml::encode($data->societa); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('anagrafica')); ?>:</b>
-	<?php echo CHtml::encode($data->anagrafica); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('altro')); ?>:</b>
-	<?php echo CHtml::encode($data->altro); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+</div><!-- form -->

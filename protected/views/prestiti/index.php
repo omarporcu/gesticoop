@@ -3,16 +3,16 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Prestitis',
+	'Prestiti',
 );
 
 $this->menu=array(
-	array('label'=>'Create Prestiti', 'url'=>array('create')),
-	array('label'=>'Manage Prestiti', 'url'=>array('admin')),
+	array('label'=>'Nuovo Prestito', 'url'=>array('create')),
+	//array('label'=>'Manage Prestiti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Prestitis</h1>
+<h1>Prestiti</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
