@@ -80,15 +80,9 @@
 		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'cap'); ?>
-				<?php echo $form->textField($model,'cap',array('size'=>45,'maxlength'=>45)); ?>
-			</td>
-			<td>
 				<?php echo $form->labelEx($model,'comune'); ?>
 				<?php echo $form->textField($model,'comune',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
-		</tr>
-		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'indirizzo'); ?>
 				<?php echo $form->textField($model,'indirizzo',array('size'=>45,'maxlength'=>45)); ?>

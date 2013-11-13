@@ -141,5 +141,59 @@ class ComuniController extends Controller
 	                   array('value'=>$value),CHtml::encode($name),true);
 	    }
 	}	
+
+	public function actionUpdateProvincia()
+	{
+		if(isset($_POST['Societa']['regione'])) 
+			$regione = $_POST['Societa']['regione'];
+		else
+			return null;
+		
+		$data=Comuni::model()->findAll(
+			array(
+				'order'=>'provincia',
+				'condition'=>'regione=:regione',
+				'params'=>array(':regione'=>$regione)	
+			)
+		);
+					  
+	    $data=CHtml::listData($data,'provincia','provincia');
+	    
+	    echo CHtml::tag('option',
+	    	array('value'=>''),'Seleziona Provincia',true);
+
+	    foreach($data as $value=>$name)
+	    {
+	        echo CHtml::tag('option',
+	                   array('value'=>$value),CHtml::encode($name),true);
+	    }
+	}	
+	
+	public function actionUpdateComune()
+	{
+		if(isset($_POST['Societa']['provincia'])) 
+			$provincia = $_POST['Societa']['provincia'];
+		else
+			return null;
+		
+		$data=Comuni::model()->findAll(
+			array(
+				'order'=>'nome',
+				'condition'=>'provincia=:provincia',
+				'params'=>array(':provincia'=>$provincia)	
+			)
+		);
+			  
+	    $data=CHtml::listData($data,'nome','nome');
+	    
+	    echo CHtml::tag('option',
+	    	array('value'=>''),'Seleziona Comune',true);
+
+	    foreach($data as $value=>$name)
+	    {
+	        echo CHtml::tag('option',
+	                   array('value'=>$value),CHtml::encode($name),true);
+	    }
+	}	
 	
 }

@@ -47,14 +47,12 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'data'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'data'); ?>
+				<?php echo $form->textField($model,'data', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'data'); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'scadenza'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'scadenza'); ?>
+				<?php echo $form->textField($model,'scadenza', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'scadenza'); ?>
 			</td>
 		</tr>

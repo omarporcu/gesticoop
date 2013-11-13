@@ -32,7 +32,7 @@ class SocietaController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update', 'dynamiccities'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -71,9 +71,7 @@ class SocietaController extends Controller
 		{
 			$model->attributes=$_POST['Societa'];
 			if($model->save())
-			{
 				$this->redirect(array('view','id'=>$model->id));
-			}
 		}
 
 		$this->render('create',array(
@@ -96,12 +94,8 @@ class SocietaController extends Controller
 		if(isset($_POST['Societa']))
 		{
 			$model->attributes=$_POST['Societa'];
-			$model->image=CUploadedFile::getInstance($model, 'image');
 			if($model->save())
-			{
-				$model->image->saveAs('/gesticoop/images');
 				$this->redirect(array('view','id'=>$model->id));
-			}
 		}
 
 		$this->render('update',array(

@@ -45,8 +45,7 @@
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'immatricolazione'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'immatricolazione'); ?>
+				<?php echo $form->textField($model,'immatricolazione', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'immatricolazione'); ?>
 			</td>
 		</tr>
@@ -85,8 +84,7 @@
 				</td>
 				<td>
 					<?php echo $form->labelEx($model,'rata'); ?>
-					<i>inserire data nel formato gg/mm/aaaa</i> <br>
-					<?php echo $form->textField($model,'rata'); ?>
+					<?php echo $form->textField($model,'rata', array('placeholder'=>'gg/mm/aaaa')); ?>
 					<?php echo $form->error($model,'rata'); ?>
 				</td>
 			</tr>

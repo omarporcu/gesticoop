@@ -61,14 +61,12 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'data_inizio'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'data_inizio'); ?>
+				<?php echo $form->textField($model,'data_inizio', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'data_inizio'); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data_fine'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'data_fine'); ?>
+				<?php echo $form->textField($model,'data_fine', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'data_fine'); ?>
 			</td>
 		</tr>

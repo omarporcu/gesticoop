@@ -86,28 +86,58 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'regione'); ?>
-				<?php echo $form->textField($model,'regione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->dropDownList(
+					$model, 
+					'regione', 
+					CHtml::listData(
+						Comuni::model()->findAll(array('order'=>'regione')), 'regione', 'regione'),
+						array(
+							'empty'=>'Seleziona Regione',
+							'ajax'=>array(
+								'type'=>'POST', //request type
+								'url'=>CController::createUrl('comuni/updateprovincia'), //url to call.
+								'update'=>'#Societa_provincia', //selector to update
+							)
+						)
+					);
+				?>
 				<?php echo $form->error($model,'regione'); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'provincia'); ?>
-				<?php echo $form->textField($model,'provincia',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->dropDownList(
+					$model, 
+					'provincia', 
+					CHtml::listData(
+						Comuni::model()->findAll(array('order'=>'provincia')), 'provincia', 'provincia'),
+						array(
+							'empty'=>'Seleziona Provincia',
+							'ajax'=>array(
+								'type'=>'POST', //request type
+								'url'=>CController::createUrl('comuni/updatecomune'), //url to call.
+								'update'=>'#Societa_comune', //selector to update
+							)
+						)
+					);
+				?>
 				<?php echo $form->error($model,'provincia'); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'cap'); ?>
-				<?php echo $form->textField($model,'cap',array('size'=>45,'maxlength'=>45)); ?>
-				<?php echo $form->error($model,'cap'); ?>
-			</td>
-			<td>
 				<?php echo $form->labelEx($model,'comune'); ?>
-				<?php echo $form->textField($model,'comune',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->dropDownList(
+					$model, 
+					'comune', 
+					CHtml::listData(
+						Comuni::model()->findAll(array('order'=>'nome')), 'nome', 'nome'),
+						array(
+							'empty'=>'Seleziona Comune',
+						)
+					);
+				?>
 				<?php echo $form->error($model,'comune'); ?>
 			</td>
-		</tr>
-		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'indirizzo'); ?>
 				<?php echo $form->textField($model,'indirizzo',array('size'=>45,'maxlength'=>45)); ?>
@@ -159,8 +189,7 @@
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data_iscrcc'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'data_iscrcc'); ?>
+				<?php echo $form->textField($model,'data_iscrcc', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'data_iscrcc'); ?>
 			</td>
 		</tr>

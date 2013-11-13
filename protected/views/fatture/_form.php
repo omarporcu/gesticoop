@@ -33,15 +33,19 @@
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'data'); ?>
+				<?php echo $form->textField($model,'data', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'data'); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'tipo'); ?>
-				<?php echo $form->textField($model,'tipo',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->dropDownList(
+					$model, 
+					'tipo', 
+					array('1'=>'Vendita','2'=>'Acquisto'),
+					array('empty'=>'Seleziona Tipologia')); 
+				?>
 				<?php echo $form->error($model,'tipo'); ?>
 			</td>
 			<td></td>
@@ -89,8 +93,7 @@
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data_accredito'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'data_accredito'); ?>
+				<?php echo $form->textField($model,'data_accredito', array('placeholder'=>'gg/mm/aaaa')); ?>
 				<?php echo $form->error($model,'data_accredito'); ?>
 			</td>
 		</tr>

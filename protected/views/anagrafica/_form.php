@@ -40,8 +40,7 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'data_nascita'); ?>
-				<i>inserire data nel formato gg/mm/aaaa</i> <br>
-				<?php echo $form->textField($model,'data_nascita'); ?> 
+				<?php echo $form->textField($model,'data_nascita', array('placeholder'=>'gg/mm/aaaa')); ?> 
 				<?php echo $form->error($model,'data_nascita'); ?>
 			</td>
 			<td>
