@@ -70,8 +70,16 @@ class SocietaController extends Controller
 		if(isset($_POST['Societa']))
 		{
 			$model->attributes=$_POST['Societa'];
+			
+			$uploadedFile=CUploadedFile::getInstance($model, 'logo');
+			$fileName = "{$uploadedFile}";
+			$model->logo = $fileName;
+			
 			if($model->save())
+			{
+				$uploadedFile->saveAs(Yii::app()->basePath.'/../images/'.$fileName);
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -93,9 +101,16 @@ class SocietaController extends Controller
 
 		if(isset($_POST['Societa']))
 		{
+			$_POST['Societa']['logo'] = $model->logo;		
 			$model->attributes=$_POST['Societa'];
 			if($model->save())
+			{
+				if(!empty($uploadedFile))
+				{
+					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/'.$model->logo);
+				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(

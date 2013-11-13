@@ -26,7 +26,8 @@
 		<tr>
 			<td rowspan="2">
 				<?php echo $form->labelEx($model,'logo'); ?>
-				<?php echo $form->textField($model,'logo'); ?>
+				<!--?php echo $form->textField($model,'logo'); ?-->
+				<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/'.$model->logo,"image",array("width"=>200)); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'ragione_sociale'); ?>

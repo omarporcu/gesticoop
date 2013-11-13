@@ -29,7 +29,14 @@
 		<tr>
 			<td rowspan="2">
 				<?php echo $form->labelEx($model,'logo'); ?>
-				<?php echo $form->filefield($model,'logo'); ?>
+				<!--?php echo $form->filefield($model,'logo'); ?-->
+				<?php echo CHtml::activeFileField($model, 'logo'); ?>
+				<?php
+					if ($model->isNewRecord!='1')
+					{
+						echo CHtml::image(Yii::app()->request->baseUrl.'/images/'.$model->logo,"image",array("width"=>200));
+					}
+				?>
 				<?php echo $form->error($model,'logo'); ?>
 			</td>
 			<td>

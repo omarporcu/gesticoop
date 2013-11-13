@@ -63,6 +63,7 @@ class Societa extends CActiveRecord
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, ragione_sociale, tipologia, logo, amministratore, regione, provincia, comune, cap, indirizzo, gruppo, email, telefono, fax, p_iva, c_fiscale, numero_iscrcc, regione_iscrcc, provincia_iscrcc, comune_iscrcc, data_iscrcc, note', 'safe', 'on'=>'search'),
+			array('logo', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>TRUE, 'on'=>'insert,update'),
 		);
 	}
 

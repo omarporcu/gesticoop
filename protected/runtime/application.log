@@ -9557,3 +9557,6 @@ Stack trace:
 REQUEST_URI=/gesticoop/comuni/updateprovincia
 in /private/var/www/gesticoop/protected/controllers/ComuniController.php (156)
 in /private/var/www/gesticoop/index.php (13)
+2013/11/13 16:13:45 [warning] [application] Failed to set unsafe attribute "logo" of "Societa".
+in /private/var/www/gesticoop/protected/controllers/SocietaController.php (72)
+in /private/var/www/gesticoop/index.php (13)
