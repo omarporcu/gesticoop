@@ -62,7 +62,17 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'societa'); ?>
-				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
+				<!--?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?-->
+				<?php echo $form->dropDownList(
+					$model, 
+					'societa', 
+					CHtml::listData(
+						Societa::model()->findAll(array('order'=>'ragione_sociale')), 'ragione_sociale', 'ragione_sociale'),
+						array(
+							'empty'=>'Seleziona Società',
+						)
+					);
+				?>
 				<?php echo $form->error($model,'societa'); ?>
 			</td>
 			<td>
