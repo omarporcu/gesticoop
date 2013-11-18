@@ -61,7 +61,20 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'proprietario'); ?>
-				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
+				<!--?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?-->
+				<?php echo $form->dropDownList(
+					$model, 
+					'proprietario', 
+					CHtml::listData(
+						Anagrafica::model()->findAll(array('order'=>'cognome')), 'id', 'concatened'),
+						array(
+							'empty'=>'Seleziona Proprietario',
+							'ajax'=>array(
+								'type'=>'POST', //request type
+							)
+						)
+					);
+				?>
 				<?php echo $form->error($model,'proprietario'); ?>
 			</td>
 			<td>
@@ -84,7 +97,7 @@
 				</td>
 				<td>
 					<?php echo $form->labelEx($model,'rata'); ?>
-					<?php echo $form->textField($model,'rata', array('placeholder'=>'gg/mm/aaaa')); ?>
+					<?php echo $form->textField($model,'rata',array('size'=>45,'maxlength'=>45)); ?>
 					<?php echo $form->error($model,'rata'); ?>
 				</td>
 			</tr>

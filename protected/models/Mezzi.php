@@ -58,6 +58,7 @@ class Mezzi extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'anagrafica'=>array(self::BELONGS_TO,'Anagrafica','proprietario')
 		);
 	}
 
@@ -110,7 +111,7 @@ class Mezzi extends CActiveRecord
     	return array(
         	'myDateFormat'=>array(
             	'class'=>'application.components.myDateFormat',
-                	'dateColumns'=>array('rata','immatricolazione'),
+                	'dateColumns'=>array('immatricolazione'),
             ),
         );
     }

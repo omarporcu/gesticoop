@@ -43,3 +43,34 @@ $this->menu=array(
 )); ?-->
 
 <?php echo $this->renderPartial('_view', array('model'=>$model)); ?>
+
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Mezzi Associati
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('mezzi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'id'=>'mezzi-grid',
+	'dataProvider'=>Mezzi::model()->search(),
+	'filter'=>Mezzi::model(),
+	'columns'=>array(
+		'id',
+		'marca',
+		'modello',
+		'prezzo',
+		'rata',
+		'targa',
+		array(
+			'class'=>'CButtonColumn',
+		),
+	),
+)); ?>

@@ -24,7 +24,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td rowspan="2">
+			<td rowspan="3">
 				<?php echo $form->labelEx($model,'logo'); ?>
 				<!--?php echo $form->textField($model,'logo'); ?-->
 				<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/'.$model->logo,"image",array("width"=>200)); ?>
@@ -41,10 +41,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<!--td>
 				<?php echo $form->labelEx($model,'tipologia'); ?>
 				<?php echo $form->textField($model,'tipologia',array('size'=>45,'maxlength'=>45)); ?>
-			</td>
+			</td-->
 			<td>
 				<?php echo $form->labelEx($model,'amministratore'); ?>
 				<?php echo $form->textField($model,'amministratore',array('size'=>45,'maxlength'=>45)); ?>

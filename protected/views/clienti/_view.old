@@ -1,0 +1,99 @@
+<?php
+/* @var $this ClientiController */
+/* @var $data Clienti */
+?>
+
+<div class="view">
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('ragione_sociale')); ?>:</b>
+	<?php echo CHtml::encode($data->ragione_sociale); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('tipologia')); ?>:</b>
+	<?php echo CHtml::encode($data->tipologia); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('logo')); ?>:</b>
+	<?php echo CHtml::encode($data->logo); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('amministratore')); ?>:</b>
+	<?php echo CHtml::encode($data->amministratore); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('regione')); ?>:</b>
+	<?php echo CHtml::encode($data->regione); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('provincia')); ?>:</b>
+	<?php echo CHtml::encode($data->provincia); ?>
+	<br />
+
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('comune')); ?>:</b>
+	<?php echo CHtml::encode($data->comune); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cap')); ?>:</b>
+	<?php echo CHtml::encode($data->cap); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('indirizzo')); ?>:</b>
+	<?php echo CHtml::encode($data->indirizzo); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('gruppo')); ?>:</b>
+	<?php echo CHtml::encode($data->gruppo); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
+	<?php echo CHtml::encode($data->email); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('telefono')); ?>:</b>
+	<?php echo CHtml::encode($data->telefono); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('fax')); ?>:</b>
+	<?php echo CHtml::encode($data->fax); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('p_iva')); ?>:</b>
+	<?php echo CHtml::encode($data->p_iva); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('c_fiscale')); ?>:</b>
+	<?php echo CHtml::encode($data->c_fiscale); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('numero_iscrcc')); ?>:</b>
+	<?php echo CHtml::encode($data->numero_iscrcc); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('regione_iscrcc')); ?>:</b>
+	<?php echo CHtml::encode($data->regione_iscrcc); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('provincia_iscrcc')); ?>:</b>
+	<?php echo CHtml::encode($data->provincia_iscrcc); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('comune_iscrcc')); ?>:</b>
+	<?php echo CHtml::encode($data->comune_iscrcc); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('data_iscrcc')); ?>:</b>
+	<?php echo CHtml::encode($data->data_iscrcc); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('note')); ?>:</b>
+	<?php echo CHtml::encode($data->note); ?>
+	<br />
+
+	*/ ?>
+
+</div>

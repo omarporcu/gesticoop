@@ -1,13 +1,13 @@
 <?php
-/* @var $this SocietaController */
-/* @var $model Societa */
+/* @var $this FornitoriController */
+/* @var $model Fornitori */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'societa-form',
+	'id'=>'fornitori-form',
 	'enableAjaxValidation'=>false,
 	'htmlOptions'=>array('enctype'=>'multipart/form-data')
 )); ?>
@@ -21,7 +21,7 @@
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
-						Dati Società
+						Dati Fornitore
 					</div>
 				</div>
 			</td>
@@ -103,7 +103,7 @@
 							'ajax'=>array(
 								'type'=>'POST', //request type
 								'url'=>CController::createUrl('comuni/updateprovincia'), //url to call.
-								'update'=>'#Societa_provincia', //selector to update
+								'update'=>'#Fornitori_provincia', //selector to update
 							)
 						)
 					);
@@ -122,7 +122,7 @@
 							'ajax'=>array(
 								'type'=>'POST', //request type
 								'url'=>CController::createUrl('comuni/updatecomune'), //url to call.
-								'update'=>'#Societa_comune', //selector to update
+								'update'=>'#Fornitori_comune', //selector to update
 							)
 						)
 					);

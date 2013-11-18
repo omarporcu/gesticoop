@@ -144,5 +144,10 @@ class Anagrafica extends CActiveRecord
             ),
         );
     }
+	
+	public function getConcatened()
+	{
+		return $this->cognome . ' ' . $this->nome;
+	}
 		
 }

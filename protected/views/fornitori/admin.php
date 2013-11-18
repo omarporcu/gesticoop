@@ -1,15 +1,15 @@
 <?php
-/* @var $this MezziController */
-/* @var $model Mezzi */
+/* @var $this FornitoriController */
+/* @var $model Fornitori */
 
 $this->breadcrumbs=array(
-	'Mezzi'=>array('index'),
+	'Fornitori'=>array('index'),
 	//'Manage',
 );
 
 $this->menu=array(
-	//array('label'=>'List Mezzi', 'url'=>array('index')),
-	array('label'=>'Nuovo Mezzo', 'url'=>array('create')),
+	//array('label'=>'List Fornitori', 'url'=>array('index')),
+	array('label'=>'Nuovo Fornitore', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#mezzi-grid').yiiGridView('update', {
+	$('#fornitori-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Mezzi</h1>
+<h1>Fornitori</h1>
 
 <!--p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -42,28 +42,33 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'ajaxUpdate'=>'ajaxContent',
-	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('mezzi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
-	'id'=>'mezzi-grid',
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('fornitori/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'id'=>'fornitori-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		//'proprietario',
-		//'anagrafica.cognome',
-		array(
-	        'name'=>'proprietario',
-	        'value'=>'$data->anagrafica->nome . " " . $data->anagrafica->cognome',
-	        'header'=>'Proprietario',
-		),
-		'marca',
-		'modello',
-		'prezzo',
-		'rata',
-		'targa',
-		/*
-		'immatricolazione',
-		'note',
-		*/
+		//'logo',
+		'ragione_sociale',
+		//'tipologia',
+		'amministratore',
+		//'regione',
+		//'provincia',
+		'comune',
+		//'cap',
+		//'indirizzo',
+		'gruppo',
+		'email',
+		'telefono',
+		'fax',
+		//'p_iva',
+		//'c_fiscale',
+		//'numero_iscrcc',
+		//'regione_iscrcc',
+		//'provincia_iscrcc',
+		//'comune_iscrcc',
+		//'data_iscrcc',
+		//'note',
 		array(
 			'class'=>'CButtonColumn',
 		),
