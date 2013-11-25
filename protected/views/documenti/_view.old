@@ -1,0 +1,43 @@
+<?php
+/* @var $this DocumentiController */
+/* @var $data Documenti */
+?>
+
+<div class="view">
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_anagrafica')); ?>:</b>
+	<?php echo CHtml::encode($data->id_anagrafica); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('tipologia')); ?>:</b>
+	<?php echo CHtml::encode($data->tipologia); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('data_rilascio')); ?>:</b>
+	<?php echo CHtml::encode($data->data_rilascio); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('ente_rilascio')); ?>:</b>
+	<?php echo CHtml::encode($data->ente_rilascio); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('numero_documento')); ?>:</b>
+	<?php echo CHtml::encode($data->numero_documento); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('scadenza')); ?>:</b>
+	<?php echo CHtml::encode($data->scadenza); ?>
+	<br />
+
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('note')); ?>:</b>
+	<?php echo CHtml::encode($data->note); ?>
+	<br />
+
+	*/ ?>
+
+</div>

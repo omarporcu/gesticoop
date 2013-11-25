@@ -103,4 +103,5 @@ class Comuni extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
 }

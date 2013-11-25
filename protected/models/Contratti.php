@@ -108,6 +108,30 @@ class Contratti extends CActiveRecord
 		));
 	}
 	
+	public function searchByAnagrafica($prop)
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('ncontratto',$this->utente,true);
+		$criteria->compare('utente',$this->utente,true);
+		$criteria->compare('societa',$this->societa,true);
+		$criteria->compare('tipologia',$this->tipologia,true);
+		$criteria->compare('data_inizio',$this->data_inizio,true);
+		$criteria->compare('data_fine',$this->data_fine,true);
+		$criteria->compare('ruolo',$this->ruolo,true);
+		$criteria->compare('provvigione',$this->provvigione,true);
+		$criteria->compare('note',$this->note,true);
+		$criteria->addCondition("utente=$prop");
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+	
 	public function behaviors()
 	{
     	return array(

@@ -106,6 +106,29 @@ class Mezzi extends CActiveRecord
 		));
 	}
 
+	public function searchByAnagrafica($prop)
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('marca',$this->marca,true);
+		$criteria->compare('modello',$this->modello,true);
+		$criteria->compare('prezzo',$this->prezzo,true);
+		$criteria->compare('rata',$this->rata,true);
+		$criteria->compare('targa',$this->targa,true);
+		$criteria->compare('immatricolazione',$this->immatricolazione,true);
+		$criteria->compare('proprietario',$this->proprietario,true);
+		$criteria->compare('note',$this->note,true);
+		$criteria->addCondition("proprietario=$prop");
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
 	public function behaviors()
 	{
     	return array(

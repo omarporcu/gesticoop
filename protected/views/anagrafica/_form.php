@@ -53,128 +53,80 @@
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
-						Luogo di Nascita
+						Luogo di Nascita Autocomplete
 					</div>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'regione_nascita'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'regione_nascita', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'regione')), 'regione', 'regione'),
-						array(
-							'empty'=>'Seleziona Regione',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-								'url'=>CController::createUrl('comuni/updateprovincianascita'), //url to call.
-								'update'=>'#Anagrafica_provincia_nascita', //selector to update
-							)
-						)
-					);
+				<?php echo $form->labelEx($model,'comune_nascita'); ?>
+				<?php
+					$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+						'model'=>$model,
+						'attribute'=>'comune_nascita',
+					    'htmlOptions'=>array(
+					    	'placeholder'=>'Autocompleta Comune',
+							'size'=>45,	
+						),
+						'source'=>$this->createUrl('anagrafica/comuneAutocomplete'),
+						'options'=>array(
+					        'showAnim'=>'fold',
+					        'select'=>"js:function(event, ui) {
+										jQuery('#Anagrafica_comune_nascita').val(ui.item.nome);
+										jQuery('#Anagrafica_regione_nascita').val(ui.item.regione);
+										jQuery('#Anagrafica_provincia_nascita').val(ui.item.provincia);
+					                  }",
+							
+					    ),
+					))
 				?>
-				<?php echo $form->error($model,'regione_nascita'); ?>
-			</td>
-			<td>
-				<?php echo $form->labelEx($model,'provincia_nascita'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'provincia_nascita', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'provincia')), 'provincia', 'provincia'),
-						array(
-							'empty'=>'Seleziona Provincia',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-								'url'=>CController::createUrl('comuni/updatecomunenascita'), //url to call.
-								'update'=>'#Anagrafica_comune_nascita', //selector to update
-							)
-						)
-					);
-				?>
-				<?php echo $form->error($model,'provincia_nascita'); ?>
+				<?php echo $form->error($model,'comune_nascita'); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'comune_nascita'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'comune_nascita', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'nome')), 'nome', 'nome'),
-						array(
-							'empty'=>'Seleziona Comune',
-						)
-					);
-				?>
-				<?php echo $form->error($model,'comune_nascita'); ?>
+				<?php echo $form->labelEx($model,'regione_nascita'); ?>
+				<?php echo $form->textField($model,'regione_nascita',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'regione_nascita'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'provincia_nascita'); ?>
+				<?php echo $form->textField($model,'provincia_nascita',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'provincia_nascita'); ?>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
-						Residenza
+						Residenza Autocomplete
 					</div>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'regione_residenza'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'regione_residenza', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'regione')), 'regione', 'regione'),
-						array(
-							'empty'=>'Seleziona Regione',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-								'url'=>CController::createUrl('comuni/updateprovinciaresidenza'), //url to call.
-								'update'=>'#Anagrafica_provincia_residenza', //selector to update
-							)
-						)
-					);
-				?>
-				<?php echo $form->error($model,'regione_residenza'); ?>
-			</td>
-			<td>
-				<?php echo $form->labelEx($model,'provincia_residenza'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'provincia_residenza', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'provincia')), 'provincia', 'provincia'),
-						array(
-							'empty'=>'Seleziona Provincia',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-								'url'=>CController::createUrl('comuni/updatecomuneresidenza'), //url to call.
-								'update'=>'#Anagrafica_comune_residenza', //selector to update
-							)
-						)
-					);
-				?>
-				<?php echo $form->error($model,'provincia_residenza'); ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
 				<?php echo $form->labelEx($model,'comune_residenza'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'comune_residenza', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'nome')), 'nome', 'nome'),
-						array(
-							'empty'=>'Seleziona Comune',
-						)
-					);
+				<?php
+					$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+						'model'=>$model,
+						'attribute'=>'comune_residenza',
+					    'htmlOptions'=>array(
+					    	'placeholder'=>'Autocompleta Comune',
+							'size'=>45,	
+						),
+						'source'=>$this->createUrl('anagrafica/comuneAutocomplete'),
+						'options'=>array(
+					        'showAnim'=>'fold',
+					        'select'=>"js:function(event, ui) {
+										jQuery('#Anagrafica_comune_residenza').val(ui.item.nome);
+										jQuery('#Anagrafica_regione_residenza').val(ui.item.regione);
+										jQuery('#Anagrafica_provincia_residenza').val(ui.item.provincia);
+					                  }",
+							
+					    ),
+					))
 				?>
 				<?php echo $form->error($model,'comune_residenza'); ?>
 			</td>
@@ -182,6 +134,18 @@
 				<?php echo $form->labelEx($model,'indirizzo_residenza'); ?>
 				<?php echo $form->textField($model,'indirizzo_residenza',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'indirizzo_residenza'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'regione_residenza'); ?>
+				<?php echo $form->textField($model,'regione_residenza',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'regione_residenza'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'provincia_residenza'); ?>
+				<?php echo $form->textField($model,'provincia_residenza',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'provincia_residenza'); ?>
 			</td>
 		</tr>
 		<tr>

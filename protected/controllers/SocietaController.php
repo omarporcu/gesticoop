@@ -77,7 +77,8 @@ class SocietaController extends Controller
 			
 			if($model->save())
 			{
-				$uploadedFile->saveAs(Yii::app()->basePath.'/../images/'.$fileName);
+				if(isset($fileName))
+					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/'.$fileName);
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}

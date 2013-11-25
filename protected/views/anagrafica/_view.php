@@ -54,18 +54,18 @@
 		</tr>
 		<tr>
 			<td>
+				<?php echo $form->labelEx($model,'comune_nascita'); ?>
+				<?php echo $form->textField($model,'comune_nascita'); ?> 
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<?php echo $form->labelEx($model,'regione_nascita'); ?>
 				<?php echo $form->textField($model,'regione_nascita'); ?> 
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'provincia_nascita'); ?>
 				<?php echo $form->textField($model,'provincia_nascita'); ?> 
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $form->labelEx($model,'comune_nascita'); ?>
-				<?php echo $form->textField($model,'comune_nascita'); ?> 
 			</td>
 		</tr>
 		<tr>
@@ -79,22 +79,22 @@
 		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'regione_residenza'); ?>
-				<?php echo $form->textField($model,'regione_residenza'); ?> 
-			</td>
-			<td>
-				<?php echo $form->labelEx($model,'provincia_residenza'); ?>
-				<?php echo $form->textField($model,'provincia_residenza'); ?> 
-			</td>
-		</tr>
-		<tr>
-			<td>
 				<?php echo $form->labelEx($model,'comune_residenza'); ?>
 				<?php echo $form->textField($model,'comune_residenza'); ?> 
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'indirizzo_residenza'); ?>
 				<?php echo $form->textField($model,'indirizzo_residenza',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'regione_residenza'); ?>
+				<?php echo $form->textField($model,'regione_residenza'); ?> 
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'provincia_residenza'); ?>
+				<?php echo $form->textField($model,'provincia_residenza'); ?> 
 			</td>
 		</tr>
 		<tr>
