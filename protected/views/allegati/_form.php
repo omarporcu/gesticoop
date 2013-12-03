@@ -8,80 +8,67 @@
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'allegati-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">I campi con <span class="required">*</span> sono obbligatori.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	
-	<div class="row">
-		<?php echo $form->labelEx($model,'idsezione'); ?>
-		<?php echo $form->dropDownList(
-			$model, 
-			'idsezione', 
-			CHtml::listData(
-				Anagrafica::model()->findAll(array('order'=>'cognome')), 'id', 'concatened'),
-				array(
-					'empty'=>'Seleziona Anagrafica',
-					'ajax'=>array(
-						'type'=>'POST', //request type
-					)
-				)
-			);
-		?>
-		<?php echo $form->error($model,'idsezione'); ?>
-	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'sezione'); ?>
-		<?php echo $form->textField($model,'sezione',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'sezione'); ?>
-	</div>
+	<?php if(isset($_GET['sez'])) {echo $form->hiddenField($model, 'idsezione',array('value'=>$_GET['idsez']));}else{echo $form->hiddenField($model, 'idsezione');} ?>
+	<?php if(isset($_GET['sez'])){echo $form->hiddenField($model, 'sezione',array('value'=>$_GET['sez']));}else{echo $form->hiddenField($model, 'sezione');}?>
 
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'allegato'); ?>
-		<?php echo $form->textField($model,'allegato',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'allegato'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'nome'); ?>
-		<?php echo $form->textField($model,'nome',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'nome'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'descrizione'); ?>
-		<?php echo $form->textField($model,'descrizione',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'descrizione'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'data_inserimento'); ?>
-		<?php echo $form->textField($model,'data_inserimento'); ?>
-		<?php echo $form->error($model,'data_inserimento'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'privato'); ?>
-		<?php echo $form->textField($model,'privato',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'privato'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'visibile'); ?>
-		<?php echo $form->textField($model,'visibile',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'visibile'); ?>
-	</div>
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dati Allegato
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'allegato'); ?>
+				<?php echo $form->fileField($model,'allegato'); ?>
+				<?php echo $form->error($model,'allegato'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'nome'); ?>
+				<?php echo $form->textField($model,'nome',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'nome'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'descrizione'); ?>
+				<?php echo $form->textField($model,'descrizione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'descrizione'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'data_inserimento'); ?>
+				<?php echo $form->textField($model,'data_inserimento'); ?>
+				<?php echo $form->error($model,'data_inserimento'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'privato'); ?>
+				<?php echo $form->textField($model,'privato',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'privato'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'visibile'); ?>
+				<?php echo $form->textField($model,'visibile',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'visibile'); ?>
+			</td>
+		</tr>
+	</table>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Salva' : 'Salva'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

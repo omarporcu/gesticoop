@@ -70,8 +70,17 @@ class AllegatiController extends Controller
 		if(isset($_POST['Allegati']))
 		{
 			$model->attributes=$_POST['Allegati'];
+			
+			$uploadedFile=CUploadedFile::getInstance($model,'allegato');
+			$fileName = "{$uploadedFile}";
+			$model->allegato = $fileName;
+			
 			if($model->save())
+			{
+				$uploadedFile->saveAs(Yii::app()->basePath.'/../files/'.$fileName);
+					
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(
@@ -120,18 +129,19 @@ class AllegatiController extends Controller
 	/**
 	 * Lists all models.
 	 */
-	public function actionIndex()
+	/*public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Allegati');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
-	}
+	}*/
 
 	/**
 	 * Manages all models.
 	 */
-	public function actionAdmin()
+	//public function actionAdmin()
+	public function actionIndex()
 	{
 		$model=new Allegati('search');
 		$model->unsetAttributes();  // clear any default values

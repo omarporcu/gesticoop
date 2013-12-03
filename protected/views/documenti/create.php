@@ -3,6 +3,7 @@
 /* @var $model Documenti */
 
 $ut=$_GET['ut'];
+$an=$_GET['an'];
 
 $this->breadcrumbs=array(
 	'Documenti'=>array('index'),
