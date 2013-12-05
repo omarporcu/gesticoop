@@ -6,12 +6,13 @@ $ut=$_GET['ut'];
 $an=$_GET['an'];
 
 $this->breadcrumbs=array(
-	'Documenti'=>array('index'),
-	//'Create',
+	'Anagrafica'=>array('anagrafica/index'),
+	$ut=>array('anagrafica/view/'.$an),
+	'Nuovo Documento',
 );
 
 $this->menu=array(
-	array('label'=>'Documenti', 'url'=>array('index')),
+	array('label'=>'Anagrafica', 'url'=>array('anagrafica/view/'.$an)),
 	//array('label'=>'Manage Documenti', 'url'=>array('admin')),
 );
 ?>

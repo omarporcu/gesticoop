@@ -79,7 +79,8 @@ class AllegatiController extends Controller
 			{
 				$uploadedFile->saveAs(Yii::app()->basePath.'/../files/'.$fileName);
 					
-				$this->redirect(array('view','id'=>$model->id));
+				//$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array($_GET['sez'].'/view','id'=>$_GET['idsez']));
 			}
 		}
 
@@ -123,7 +124,7 @@ class AllegatiController extends Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array($_GET['sez'].'/view/'.$idsez));
 	}
 
 	/**

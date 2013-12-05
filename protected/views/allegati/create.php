@@ -4,10 +4,14 @@
 
 $idsez=$_GET['idsez'];
 $sez=$_GET['sez'];
+$an=$_GET['an'];
+$ut=$_GET['ut'];
 
 $this->breadcrumbs=array(
-	'Allegati'=>array('index'),
-	'Nuovo',
+	'Anagrafica'=>array('anagrafica/index'),
+	$ut=>array('anagrafica/view/'.$an),
+	ucfirst(strtolower($sez))=>array($sez.'/view/'.$idsez),
+	'Nuovo Allegato',
 );
 
 $this->menu=array(
@@ -16,6 +20,6 @@ $this->menu=array(
 );
 ?>
 
-<h1>Nuovo Allegato</h1>
+<h1>Nuovo Allegato - <?php echo $ut; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

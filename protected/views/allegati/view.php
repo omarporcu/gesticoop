@@ -2,21 +2,28 @@
 /* @var $this AllegatiController */
 /* @var $model Allegati */
 
+$sez=$_GET['sez'];
+$idsez=$_GET['idsez'];
+$ut=$_GET['ut'];
+$an=$_GET['an'];
+
 $this->breadcrumbs=array(
-	'Allegati'=>array('index'),
-	$model->id,
+	'Anagrafica'=>array('anagrafica/index'),
+	$ut=>array('anagrafica/view/'.$an),
+	ucfirst(strtolower($sez))=>array($sez.'/view/'.$idsez),	
+	'Allegato',
 );
 
 $this->menu=array(
 	array('label'=>'Allegati', 'url'=>array('index')),
 	array('label'=>'Nuovo Allegato', 'url'=>array('create')),
 	array('label'=>'Aggiorna Allegato', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Elimina Allegato', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Elimina Allegato', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'idsez'=>$_GET['idsez'],'sez'=>$_GET['sez']),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Allegati', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Dettaglio Allegato #<?php echo $model->id; ?></h1>
+<h1>Allegato</h1>
 
 <!--?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

@@ -53,7 +53,7 @@
 				<?php echo $form->error($model,'data_inserimento'); ?>
 			</td>
 		</tr>
-		<tr>
+		<!--tr>
 			<td>
 				<?php echo $form->labelEx($model,'privato'); ?>
 				<?php echo $form->textField($model,'privato',array('size'=>45,'maxlength'=>45)); ?>
@@ -64,7 +64,7 @@
 				<?php echo $form->textField($model,'visibile',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'visibile'); ?>
 			</td>
-		</tr>
+		</tr-->
 	</table>
 
 	<div class="row buttons">

@@ -8,7 +8,7 @@ $ut=$model->anagrafica->cognome.' '.$model->anagrafica->nome;
 
 $this->breadcrumbs=array(
 	'Anagrafica'=>array('anagrafica/index'),
-	$model->anagrafica->cognome.' '.$model->anagrafica->nome=>array('anagrafica/view/'.$an),
+	$ut=>array('anagrafica/view/'.$an),
 	'Documenti',
 );
 
@@ -53,10 +53,11 @@ $this->menu=array(
 	
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'ajaxUpdate'=>'ajaxContent',
-	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('allegati/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
-	'id'=>'allegati-grid',
+	//'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('allegati/view?sez=documenti&idsez='.$model->id, array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('allegati/view?an='.$an.'&sez=documenti&ut='.$ut.'&idsez='.$model->id.'&id=') . "' + $.fn.yiiGridView.getSelection(id);}",
+		'id'=>'allegati-grid',
 	//'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?an='.$_GET['id'].'&ut='.$nomecognome,array('class'=>'')),
-	'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?idsez='.$_GET['id'].'&sez=documenti',array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Allegato','../allegati/create?idsez='.$_GET['id'].'&sez=documenti&an='.$an.'&ut='.$ut,array('class'=>'')),
 	'dataProvider'=>Allegati::model()->searchByDocumenti('"documenti"',$_GET['id']),
 	//'filter'=>$model,
 	'columns'=>array(
@@ -67,8 +68,8 @@ $this->menu=array(
 		'nome',
 		'descrizione',
 		'data_inserimento',
-		'privato',
-		'visibile',
+		//'privato',
+		//'visibile',
 		/*array(
 			'class'=>'CButtonColumn',
 		),*/

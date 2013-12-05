@@ -62,7 +62,7 @@ $this->menu=array(
 	'ajaxUpdate'=>'ajaxContent',
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('documenti/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'documenti-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Documento','../documenti/create?an='.$_GET['id'].'&ut='.$nomecognome,array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Documento',Yii::app()->baseUrl.'/documenti/create?an='.$_GET['id'].'&ut='.$nomecognome,array('class'=>'')),
 	'dataProvider'=>Documenti::model()->searchByAnagrafica($_GET['id']),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
@@ -98,7 +98,7 @@ $this->menu=array(
 	'ajaxUpdate'=>'ajaxContent',
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('contratti/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'contratti-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Contratto','../contratti/create',array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Contratto',Yii::app()->baseUrl.'/contratti/create',array('class'=>'')),
 	'dataProvider'=>Contratti::model()->searchByAnagrafica($_GET['id']),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
@@ -135,7 +135,7 @@ $this->menu=array(
 	'ajaxUpdate'=>'ajaxContent',
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('mezzi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'mezzi-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Mezzo','../mezzi/create',array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Mezzo',Yii::app()->baseUrl.'/mezzi/create',array('class'=>'')),
 	'dataProvider'=>Mezzi::model()->searchByAnagrafica($_GET['id']),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
