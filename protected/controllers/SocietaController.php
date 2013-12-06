@@ -77,8 +77,10 @@ class SocietaController extends Controller
 			
 			if($model->save())
 			{
-				if(isset($fileName))
+				if($fileName)
+				{
 					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/'.$fileName);
+				}
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -104,6 +106,9 @@ class SocietaController extends Controller
 		{
 			$_POST['Societa']['logo'] = $model->logo;		
 			$model->attributes=$_POST['Societa'];
+			
+			$uploadedFile=CUploadedFile::getInstance($model,'image');
+			
 			if($model->save())
 			{
 				if(!empty($uploadedFile))
