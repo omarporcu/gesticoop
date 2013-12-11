@@ -32,7 +32,7 @@
 				array('label'=>'Home', 'url'=>array('/site/index')),
 				array('label'=>'Anagrafica', 'url'=>array('/anagrafica')),
 				array('label'=>'Società', 'url'=>array('/societa')),
-				array('label'=>'Mezzi', 'url'=>array('/mezzi')),
+				array('label'=>'Mezzi', 'url'=>array('/parco')),
 				array('label'=>'Contratti', 'url'=>array('/contratti')),
 				array('label'=>'Prestiti', 'url'=>array('/prestiti')),
 				array('label'=>'Fatture', 'url'=>array('/fatture')),

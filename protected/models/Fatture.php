@@ -73,7 +73,7 @@ class Fatture extends CActiveRecord
 			'numero_fattura' => 'Numero Fattura',
 			'tipo' => 'Tipo',
 			'societa' => 'Società',
-			'cliente' => 'Cliente',
+			'cliente' => 'Esterno',
 			'causale' => 'Causale',
 			'descrizione' => 'Descrizione',
 			'imponibile' => 'Imponibile',

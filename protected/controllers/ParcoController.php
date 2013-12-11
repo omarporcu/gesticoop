@@ -1,6 +1,6 @@
 <?php
 
-class FattureController extends Controller
+class ParcoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class FattureController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','aggiornaEsterno'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,14 +62,14 @@ class FattureController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Fatture;
+		$model=new Parco;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Fatture']))
+		if(isset($_POST['Parco']))
 		{
-			$model->attributes=$_POST['Fatture'];
+			$model->attributes=$_POST['Parco'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -91,9 +91,9 @@ class FattureController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Fatture']))
+		if(isset($_POST['Parco']))
 		{
-			$model->attributes=$_POST['Fatture'];
+			$model->attributes=$_POST['Parco'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -119,10 +119,10 @@ class FattureController extends Controller
 
 	/**
 	 * Lists all models.
-	 */
-/*	public function actionIndex()
+	 
+	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Fatture');
+		$dataProvider=new CActiveDataProvider('Parco');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -131,13 +131,13 @@ class FattureController extends Controller
 	/**
 	 * Manages all models.
 	 */
-//	public function actionAdmin()
+	//public function actionAdmin()
 	public function actionIndex()
 	{
-		$model=new Fatture('search');
+		$model=new Parco('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Fatture']))
-			$model->attributes=$_GET['Fatture'];
+		if(isset($_GET['Parco']))
+			$model->attributes=$_GET['Parco'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -148,12 +148,12 @@ class FattureController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Fatture the loaded model
+	 * @return Parco the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Fatture::model()->findByPk($id);
+		$model=Parco::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -161,40 +161,14 @@ class FattureController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Fatture $model the model to be validated
+	 * @param Parco $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='fatture-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='parco-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-	}
-	
-	public function actionAggiornaEsterno()
-	{
-		if(isset($_POST['Fatture']['tipo']))
-			if ($_POST['Fatture']['tipo']=="1")
-			{
-				$data=Clienti::model()->findAll(array('order'=>'ragione_sociale'));
-			    $data=CHtml::listData($data,'ragione_sociale','ragione_sociale');
-			    
-			    echo CHtml::tag('option',array('value'=>''),'Seleziona Cliente',true);
-			
-			} else if ($_POST['Fatture']['tipo']=="2") {
-			
-				$data=Fornitori::model()->findAll(array('order'=>'ragione_sociale'));
-			    $data=CHtml::listData($data,'ragione_sociale','ragione_sociale');
-			    
-			    echo CHtml::tag('option',array('value'=>''),'Seleziona Fornitore',true);
-			}
-
-	    foreach($data as $value=>$name)
-	    {
-	        echo CHtml::tag('option',
-	                   array('value'=>$value),CHtml::encode($name),true);
-	    }
-		
 	}
 }

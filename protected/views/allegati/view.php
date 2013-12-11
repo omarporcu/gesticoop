@@ -15,8 +15,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Allegati', 'url'=>array('index')),
-	array('label'=>'Nuovo Allegato', 'url'=>array('create')),
+	array('label'=>'Anagrafica', 'url'=>array('anagrafica/view/'.$an)),
+	array('label'=>'Nuovo Allegato', 'url'=>array('create?an='.$an.'&ut='.$ut)),
 	array('label'=>'Aggiorna Allegato', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Allegato', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'idsez'=>$_GET['idsez'],'sez'=>$_GET['sez']),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Allegati', 'url'=>array('admin')),

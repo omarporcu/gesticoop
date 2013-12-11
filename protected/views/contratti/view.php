@@ -15,7 +15,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Anagrafica', 'url'=>array('anagrafica/view/'.$an)),
 	array('label'=>'Nuovo Contratto', 'url'=>array('create?an='.$an.'&ut='.$ut.'&soc='.$model->societa)),
-	array('label'=>'Aggiorna Contratto', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Aggiorna Contratto', 'url'=>array('update?id='.$model->id.'&an='.$an.'&ut='.$ut.'&soc='.$model->societa)),
 	array('label'=>'Elimina Contratto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'an'=>$an),'confirm'=>'Sicuro di voler eliminare il Contratto?')),
 	//array('label'=>'Manage Contratti', 'url'=>array('admin')),
 );

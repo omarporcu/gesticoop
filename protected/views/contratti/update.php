@@ -2,15 +2,19 @@
 /* @var $this ContrattiController */
 /* @var $model Contratti */
 
+$an=$_GET['an'];
+$ut=$_GET['ut'];
+$soc=$_GET['soc'];
+
 $this->breadcrumbs=array(
-	'Contratti'=>array('index'),
-	$model->ncontratto=>array('view','id'=>$model->ncontratto),
-	'Aggiorna',
+	'Anagrafica'=>array('anagrafica/index'),
+	$ut=>array('anagrafica/view/'.$an),
+	'Contratti',
 );
 
 $this->menu=array(
 	array('label'=>'Contratti', 'url'=>array('index')),
-	array('label'=>'Nuovo Contratto', 'url'=>array('create')),
+	array('label'=>'Nuovo Contratto', 'url'=>array('create?an='.$an.'&ut='.$ut.'&soc='.$model->societa)),
 	array('label'=>'Dettagli Contratto', 'url'=>array('view', 'id'=>$model->id)),
 	//array('label'=>'Manage Contratti', 'url'=>array('admin')),
 );

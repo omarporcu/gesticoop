@@ -92,56 +92,26 @@
 		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'regione'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'regione', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'regione')), 'regione', 'regione'),
-						array(
-							'empty'=>'Seleziona Regione',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-								'url'=>CController::createUrl('comuni/updateprovincia'), //url to call.
-								'update'=>'#Clienti_provincia', //selector to update
-							)
-						)
-					);
-				?>
-				<?php echo $form->error($model,'regione'); ?>
-			</td>
-			<td>
-				<?php echo $form->labelEx($model,'provincia'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'provincia', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'provincia')), 'provincia', 'provincia'),
-						array(
-							'empty'=>'Seleziona Provincia',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-								'url'=>CController::createUrl('comuni/updatecomune'), //url to call.
-								'update'=>'#Clienti_comune', //selector to update
-							)
-						)
-					);
-				?>
-				<?php echo $form->error($model,'provincia'); ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
 				<?php echo $form->labelEx($model,'comune'); ?>
-				<?php echo $form->dropDownList(
-					$model, 
-					'comune', 
-					CHtml::listData(
-						Comuni::model()->findAll(array('order'=>'nome')), 'nome', 'nome'),
-						array(
-							'empty'=>'Seleziona Comune',
-						)
-					);
+				<?php
+					$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+						'model'=>$model,
+						'attribute'=>'comune',
+					    'htmlOptions'=>array(
+					    	'placeholder'=>'Autocompleta Comune',
+							'size'=>45,	
+						),
+						'source'=>$this->createUrl('societa/comuneAutocomplete'),
+						'options'=>array(
+					        'showAnim'=>'fold',
+					        'select'=>"js:function(event, ui) {
+										jQuery('#Societa_comune').val(ui.item.nome);
+										jQuery('#Societa_regione').val(ui.item.regione);
+										jQuery('#Societa_provincia').val(ui.item.provincia);
+					                  }",
+							
+					    ),
+					))
 				?>
 				<?php echo $form->error($model,'comune'); ?>
 			</td>
@@ -149,6 +119,18 @@
 				<?php echo $form->labelEx($model,'indirizzo'); ?>
 				<?php echo $form->textField($model,'indirizzo',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'indirizzo'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'regione'); ?>
+				<?php echo $form->textField($model,'regione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'regione'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'provincia'); ?>
+				<?php echo $form->textField($model,'provincia',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'provincia'); ?>
 			</td>
 		</tr>
 		<tr>

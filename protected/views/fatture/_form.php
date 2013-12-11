@@ -2,6 +2,7 @@
 /* @var $this FattureController */
 /* @var $model Fatture */
 /* @var $form CActiveForm */
+
 ?>
 
 <div class="form">
@@ -40,11 +41,25 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'tipo'); ?>
-				<?php echo $form->dropDownList(
+				<!--?php echo $form->dropDownList(
 					$model, 
 					'tipo', 
 					array('1'=>'Vendita','2'=>'Acquisto'),
 					array('empty'=>'Seleziona Tipologia')); 
+				?-->
+				<?php echo $form->dropDownList(
+					$model, 
+					'tipo', 
+					array('1'=>'Vendita','2'=>'Acquisto'),
+					array(
+						'empty'=>'Seleziona Tipologia',
+						'ajax'=>array(
+							'type'=>'POST', //request type
+							'url'=>CController::createUrl('Fatture/aggiornaEsterno'), //url to call.
+							'update'=>'#Fatture_cliente', //selector to update
+							)
+						)
+					);
 				?>
 				<?php echo $form->error($model,'tipo'); ?>
 			</td>
@@ -77,7 +92,22 @@
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'cliente'); ?>
-				<?php echo $form->textField($model,'cliente',array('size'=>45,'maxlength'=>45)); ?>
+				<!--?php echo $form->dropDownList(
+					$model, 
+					'cliente', 
+					CHtml::listData(
+						Fornitori::model()->findAll(array('order'=>'ragione_sociale')), 'ragione_sociale', 'ragione_sociale'),
+						array(
+							'empty'=>'Seleziona Fornitore',
+						)
+					);
+				?-->
+				<?php echo $form->dropDownList(
+					$model, 
+					'cliente', 
+					array()
+					);
+				?>
 				<?php echo $form->error($model,'cliente'); ?>
 			</td>
 		</tr>

@@ -51,7 +51,7 @@
 				<?php echo $form->textField($model,'descrizione',array('size'=>96,'maxlength'=>96)); ?>
 			</td>
 		</tr>
-		<tr>
+		<!--tr>
 			<td>
 				<?php echo $form->labelEx($model,'privato'); ?>
 				<?php echo $form->textField($model,'privato',array('size'=>45,'maxlength'=>45)); ?>
@@ -60,7 +60,7 @@
 				<?php echo $form->labelEx($model,'visibile'); ?>
 				<?php echo $form->textField($model,'visibile',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
-		</tr>
+		</tr-->
 		<tr>
 			<td>
 					<?php echo $form->labelEx($model,'allegato'); ?>

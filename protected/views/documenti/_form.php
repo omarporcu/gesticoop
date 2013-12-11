@@ -68,20 +68,9 @@
 						TipoDocumenti::model()->findAll(), 'id', 'nome'),
 						array(
 							'empty'=>'Seleziona Tipologia',
-							/*'ajax'=>array(
-								'type'=>'POST', //request type
-								'url'=>CController::createUrl('comuni/updateprovincianascita'), //url to call.
-								'update'=>'#Anagrafica_provincia_nascita', //selector to update
-							)*/
 						)
 					);
 				?>
-				<!--?php echo $form->dropDownList(
-					$model, 
-					'tipologia', 
-					array('1'=>'Patente di Guida','2'=>'Carta d\'identità','3'=>'Tessera Sanitaria','4'=>'Passaporto'),
-					array('empty'=>'Seleziona Tipologia')); 
-				?-->
 				<?php echo $form->error($model,'tipologia'); ?>
 			</td>
 			<td>

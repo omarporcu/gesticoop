@@ -74,7 +74,7 @@ class Prestiti extends CActiveRecord
 			'scadenza' => 'Scadenza',
 			'data' => 'Data',
 			'societa' => 'Societa',
-			'anagrafica' => 'Anagrafica',
+			'anagrafica' => 'Mezzo',
 			'altro' => 'Altro',
 		);
 	}

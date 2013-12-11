@@ -1,22 +1,19 @@
 <?php
-/* @var $this MezziController */
-/* @var $model Mezzi */
+/* @var $this ParcoController */
+/* @var $model Parco */
 /* @var $form CActiveForm */
 ?>
 
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'mezzi-form',
+	'id'=>'parco-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 
 	<p class="note">I campi con <span class="required">*</span> sono obbligatori.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-	<?php echo $form->hiddenField($model,'proprietario',array('size'=>45,'maxlength'=>45,'value'=>$_GET['an'])); ?>
-	<?php echo $form->error($model,'proprietario'); ?>
 
 	<table>
 		<tr>
@@ -62,10 +59,10 @@
 			</td>
 		</tr>
 		<tr>
-			<!--td>
+			<td>
 				<?php echo $form->labelEx($model,'proprietario'); ?>
-				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45,'value'=>$_GET['an'])); ?>
-				<!--?php echo $form->dropDownList(
+				<!--?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?-->
+				<?php echo $form->dropDownList(
 					$model, 
 					'proprietario', 
 					CHtml::listData(
@@ -77,14 +74,14 @@
 							)
 						)
 					);
-				?-->
-				<!--?php echo $form->error($model,'proprietario'); ?>
+				?>
+				<?php echo $form->error($model,'proprietario'); ?>
 			</td-->
-			<td>
+			<!--td>
 				<?php echo $form->labelEx($model,'utente'); ?>
-				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45,'value'=>$_GET['ut'])); ?>
+				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'utente'); ?>
-			</td>
+			</td-->
 		</tr>
 		<tr>
 			<td colspan="2">
