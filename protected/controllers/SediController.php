@@ -1,6 +1,6 @@
 <?php
 
-class ContrattiController extends Controller
+class SediController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class ContrattiController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','comuneAutocomplete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,16 +62,16 @@ class ContrattiController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Contratti;
+		$model=new Sedi;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Contratti']))
+		if(isset($_POST['Sedi']))
 		{
-			$model->attributes=$_POST['Contratti'];
+			$model->attributes=$_POST['Sedi'];
 			if($model->save())
-				$this->redirect(array('anagrafica/view','id'=>$_GET['an']));
+				$this->redirect(array('societa/view','id'=>$_GET['soc']));
 		}
 
 		$this->render('create',array(
@@ -91,9 +91,9 @@ class ContrattiController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Contratti']))
+		if(isset($_POST['Sedi']))
 		{
-			$model->attributes=$_POST['Contratti'];
+			$model->attributes=$_POST['Sedi'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -108,36 +108,35 @@ class ContrattiController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id,$an)
+	public function actionDelete($id,$soc)
 	{
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('anagrafica/view/'.$an));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('societa/view/'.$soc));
 	}
 
 	/**
 	 * Lists all models.
 	 */
-/*	public function actionIndex()
+	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Contratti');
+		$dataProvider=new CActiveDataProvider('Sedi');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
-*/
+
 	/**
 	 * Manages all models.
 	 */
-//	public function actionAdmin()
-	public function actionIndex()
+	public function actionAdmin()
 	{
-		$model=new Contratti('search');
+		$model=new Sedi('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Contratti']))
-			$model->attributes=$_GET['Contratti'];
+		if(isset($_GET['Sedi']))
+			$model->attributes=$_GET['Sedi'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -148,12 +147,12 @@ class ContrattiController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Contratti the loaded model
+	 * @return Sedi the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Contratti::model()->findByPk($id);
+		$model=Sedi::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -161,14 +160,43 @@ class ContrattiController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Contratti $model the model to be validated
+	 * @param Sedi $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='contratti-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='sedi-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
+	
+	public function actionComuneAutocomplete()
+	{
+		$riga=array();
+		$res=array();
+		
+		if (isset($_GET['term']))
+		{
+			$qtxt="SELECT nome,provincia,regione FROM tbl_comuni WHERE nome LIKE :nome";
+			$command =Yii::app()->db->createCommand($qtxt);
+			$command->bindValue(":nome", '%'.$_GET['term'].'%', PDO::PARAM_STR);
+			$res=$command->queryAll();
+									
+		}
+			
+		foreach ($res as $r)
+        {
+                $riga[] = array(
+                        'value'=>$r['nome'],
+                        'provincia'=>$r['provincia'],
+                        'regione'=>$r['regione'],
+                );
+        }
+
+	    echo CJSON::encode($riga);
+    	Yii::app()->end();
+	
+	}
+	
 }

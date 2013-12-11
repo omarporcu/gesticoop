@@ -32,7 +32,7 @@ class SocietaController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update', 'dynamiccities'),
+				'actions'=>array('create','update','comuneAutocomplete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -192,4 +192,33 @@ class SocietaController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	public function actionComuneAutocomplete()
+	{
+		$riga=array();
+		$res=array();
+		
+		if (isset($_GET['term']))
+		{
+			$qtxt="SELECT nome,provincia,regione FROM tbl_comuni WHERE nome LIKE :nome";
+			$command =Yii::app()->db->createCommand($qtxt);
+			$command->bindValue(":nome", '%'.$_GET['term'].'%', PDO::PARAM_STR);
+			$res=$command->queryAll();
+									
+		}
+			
+		foreach ($res as $r)
+        {
+                $riga[] = array(
+                        'value'=>$r['nome'],
+                        'provincia'=>$r['provincia'],
+                        'regione'=>$r['regione'],
+                );
+        }
+
+	    echo CJSON::encode($riga);
+    	Yii::app()->end();
+	
+	}
+
 }

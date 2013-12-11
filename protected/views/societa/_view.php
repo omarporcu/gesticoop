@@ -64,9 +64,34 @@
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
-						Sede Legale
+						Sede Principale Autocomplete
 					</div>
 				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'comune'); ?>
+				<?php
+					$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+						'model'=>$model,
+						'attribute'=>'comune',
+					    'htmlOptions'=>array(
+					    	'placeholder'=>'Autocompleta Comune',
+							'size'=>45,	
+						),
+						'source'=>$this->createUrl('societa/comuneAutocomplete'),
+						'options'=>array(
+					        'showAnim'=>'fold',
+					        'select'=>"js:function(event, ui) {
+										jQuery('#Societa_comune').val(ui.item.nome);
+										jQuery('#Societa_regione').val(ui.item.regione);
+										jQuery('#Societa_provincia').val(ui.item.provincia);
+					                  }",
+							
+					    ),
+					))
+				?>
 			</td>
 		</tr>
 		<tr>
@@ -77,16 +102,6 @@
 			<td>
 				<?php echo $form->labelEx($model,'provincia'); ?>
 				<?php echo $form->textField($model,'provincia',array('size'=>45,'maxlength'=>45)); ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<?php echo $form->labelEx($model,'comune'); ?>
-				<?php echo $form->textField($model,'comune',array('size'=>45,'maxlength'=>45)); ?>
-			</td>
-			<td>
-				<?php echo $form->labelEx($model,'indirizzo'); ?>
-				<?php echo $form->textField($model,'indirizzo',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
 		</tr>
 		<tr>

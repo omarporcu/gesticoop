@@ -1,0 +1,47 @@
+<?php
+/* @var $this SediController */
+/* @var $data Sedi */
+?>
+
+<div class="view">
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id_societa')); ?>:</b>
+	<?php echo CHtml::encode($data->id_societa); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('regione')); ?>:</b>
+	<?php echo CHtml::encode($data->regione); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('provincia')); ?>:</b>
+	<?php echo CHtml::encode($data->provincia); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('comune')); ?>:</b>
+	<?php echo CHtml::encode($data->comune); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('indirizzo')); ?>:</b>
+	<?php echo CHtml::encode($data->indirizzo); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('cap')); ?>:</b>
+	<?php echo CHtml::encode($data->cap); ?>
+	<br />
+
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('telefono')); ?>:</b>
+	<?php echo CHtml::encode($data->telefono); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('note')); ?>:</b>
+	<?php echo CHtml::encode($data->note); ?>
+	<br />
+
+	*/ ?>
+
+</div>

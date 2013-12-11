@@ -11,8 +11,8 @@
  * @property string $amministratore
  * @property string $regione
  * @property string $provincia
- * @property string $comune
- * @property string $cap
+ * @property string $comune 
+ * @property string $cap 
  * @property string $indirizzo
  * @property string $gruppo
  * @property string $email
@@ -92,7 +92,7 @@ class Societa extends CActiveRecord
 			'regione' => 'Regione',
 			'provincia' => 'Provincia',
 			'comune' => 'Comune',
-			'cap' => 'Cap',
+			'cap' => 'CAP',
 			'indirizzo' => 'Indirizzo',
 			'gruppo' => 'Gruppo',
 			'email' => 'Email',

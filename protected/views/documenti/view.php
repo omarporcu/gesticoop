@@ -5,7 +5,6 @@
 $an=$model->id_anagrafica;
 $ut=$model->anagrafica->cognome.' '.$model->anagrafica->nome;
 
-
 $this->breadcrumbs=array(
 	'Anagrafica'=>array('anagrafica/index'),
 	$ut=>array('anagrafica/view/'.$an),

@@ -25,6 +25,12 @@
 		</tr>
 		<tr>
 			<td>
+				<?php echo $form->labelEx($model,'id_utente'); ?>
+				<?php echo $form->textField($model,'id_utente',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<?php echo $form->labelEx($model,'ncontratto'); ?>
 				<?php echo $form->textField($model,'ncontratto',array('size'=>45,'maxlength'=>45)); ?>
 			</td>

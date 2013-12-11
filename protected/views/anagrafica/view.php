@@ -15,6 +15,7 @@ $this->menu=array(
 	array('label'=>'Aggiorna Anagrafica', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Anagrafica', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Anagrafica', 'url'=>array('admin')),
+	array('label'=>'Conteggi Mensili', 'url'=>array('#')),
 );
 ?>
 
@@ -62,7 +63,7 @@ $this->menu=array(
 	'ajaxUpdate'=>'ajaxContent',
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('documenti/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'documenti-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Documento',Yii::app()->baseUrl.'/documenti/create?an='.$_GET['id'].'&ut='.$nomecognome,array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Documento',Yii::app()->baseUrl.'/documenti/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
 	'dataProvider'=>Documenti::model()->searchByAnagrafica($_GET['id']),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
@@ -98,8 +99,8 @@ $this->menu=array(
 	'ajaxUpdate'=>'ajaxContent',
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('contratti/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'contratti-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Contratto',Yii::app()->baseUrl.'/contratti/create',array('class'=>'')),
-	'dataProvider'=>Contratti::model()->searchByAnagrafica($_GET['id']),
+	'summaryText'=>CHtml::link('[+] Aggiungi Contratto',Yii::app()->baseUrl.'/contratti/create?an='.$model->id.'&ut='.$nomecognome.'&soc='.$model->id_societa,array('class'=>'')),
+	'dataProvider'=>Contratti::model()->searchByAnagrafica($nomecognome),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
 		'ncontratto',
@@ -135,8 +136,8 @@ $this->menu=array(
 	'ajaxUpdate'=>'ajaxContent',
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('mezzi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'mezzi-grid',
-	'summaryText'=>CHtml::link('[+] Aggiungi Mezzo',Yii::app()->baseUrl.'/mezzi/create',array('class'=>'')),
-	'dataProvider'=>Mezzi::model()->searchByAnagrafica($_GET['id']),
+	'summaryText'=>CHtml::link('[+] Aggiungi Mezzo',Yii::app()->baseUrl.'/mezzi/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
+	'dataProvider'=>Mezzi::model()->searchByAnagrafica($model->id),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
 		'id',
@@ -151,3 +152,15 @@ $this->menu=array(
 		),*/
 	),
 )); ?>
+
+	<table style="margin-bottom: 0px !important; margin-top: 1.4em !important;">
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Conteggi Mensili
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>

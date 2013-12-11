@@ -53,6 +53,35 @@
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
+						Società
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'id_societa'); ?>
+				<!--?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?-->
+				<?php echo $form->dropDownList(
+					$model, 
+					'id_societa', 
+					CHtml::listData(
+						Societa::model()->findAll(), 'ragione_sociale', 'ragione_sociale'),
+						array(
+							'empty'=>'Seleziona Società',
+							/*'ajax'=>array(
+								'type'=>'POST', //request type
+							)*/
+						)
+					);
+				?>
+				<?php echo $form->error($model,'id_societa'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
 						Luogo di Nascita Autocomplete
 					</div>
 				</div>

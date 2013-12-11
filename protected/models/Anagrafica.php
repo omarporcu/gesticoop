@@ -7,6 +7,7 @@
  * @property integer $id
  * @property string $nome
  * @property string $cognome
+ * @property string $id_societa
  * @property string $data_nascita
  * @property string $regione_nascita
  * @property string $provincia_nascita
@@ -52,11 +53,11 @@ class Anagrafica extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nome, cognome, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban', 'length', 'max'=>45),
+			array('nome, cognome, id_societa, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban', 'length', 'max'=>45),
 			array('data_nascita, note', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nome, cognome, data_nascita, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban, note', 'safe', 'on'=>'search'),
+			array('id, nome, cognome, id_societa, data_nascita, regione_nascita, provincia_nascita, comune_nascita, c_fiscale, regione_residenza, provincia_residenza, comune_residenza, indirizzo_residenza, email, telefono, fax, cellulare, iban, note', 'safe', 'on'=>'search'),
 			
 		);
 
@@ -70,6 +71,7 @@ class Anagrafica extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'societa'=>array(self::BELONGS_TO,'Societa','id_societa'),
 		);
 	}
 
@@ -82,6 +84,7 @@ class Anagrafica extends CActiveRecord
 			'id' => '#',
 			'nome' => 'Nome',
 			'cognome' => 'Cognome',
+			'id_societa' => 'Società',
 			'data_nascita' => 'Data Nascita',
 			'regione_nascita' => 'Regione Nascita',
 			'provincia_nascita' => 'Provincia Nascita',
@@ -114,6 +117,7 @@ class Anagrafica extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('nome',$this->nome,true);
 		$criteria->compare('cognome',$this->cognome,true);
+		$criteria->compare('id_societa',$this->id_societa,true);
 		$criteria->compare('data_nascita',$this->data_nascita,true);
 		$criteria->compare('regione_nascita',$this->regione_nascita,true);
 		$criteria->compare('provincia_nascita',$this->provincia_nascita,true);
@@ -129,6 +133,39 @@ class Anagrafica extends CActiveRecord
 		$criteria->compare('cellulare',$this->cellulare,true);
 		$criteria->compare('iban',$this->iban,true);
 		$criteria->compare('note',$this->note,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+	
+	public function searchBySocieta($soc)
+	{
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('nome',$this->nome,true);
+		$criteria->compare('cognome',$this->cognome,true);
+		$criteria->compare('id_societa',$this->id_societa,true);
+		$criteria->compare('data_nascita',$this->data_nascita,true);
+		$criteria->compare('regione_nascita',$this->regione_nascita,true);
+		$criteria->compare('provincia_nascita',$this->provincia_nascita,true);
+		$criteria->compare('comune_nascita',$this->comune_nascita,true);
+		$criteria->compare('c_fiscale',$this->c_fiscale,true);
+		$criteria->compare('regione_residenza',$this->regione_residenza,true);
+		$criteria->compare('provincia_residenza',$this->provincia_residenza,true);
+		$criteria->compare('comune_residenza',$this->comune_residenza,true);
+		$criteria->compare('indirizzo_residenza',$this->indirizzo_residenza,true);
+		$criteria->compare('email',$this->email,true);
+		$criteria->compare('telefono',$this->telefono,true);
+		$criteria->compare('fax',$this->fax,true);
+		$criteria->compare('cellulare',$this->cellulare,true);
+		$criteria->compare('iban',$this->iban,true);
+		$criteria->compare('note',$this->note,true);
+		$criteria->addCondition("id_societa='$soc'");
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -37,6 +37,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'comune'); ?>
+		<?php echo $form->textField($model,'comune',array('size'=>45,'maxlength'=>45)); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'regione'); ?>
 		<?php echo $form->textField($model,'regione',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
@@ -44,16 +49,6 @@
 	<div class="row">
 		<?php echo $form->label($model,'provincia'); ?>
 		<?php echo $form->textField($model,'provincia',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'comune'); ?>
-		<?php echo $form->textField($model,'comune',array('size'=>45,'maxlength'=>45)); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'cap'); ?>
-		<?php echo $form->textField($model,'cap',array('size'=>45,'maxlength'=>45)); ?>
 	</div>
 
 	<div class="row">

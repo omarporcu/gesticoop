@@ -47,6 +47,21 @@
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
+						Società
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'id_societa'); ?>
+				<?php echo $form->textField($model,'id_societa',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
 						Luogo di Nascita
 					</div>
 				</div>

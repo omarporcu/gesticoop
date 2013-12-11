@@ -27,13 +27,20 @@
 		</tr>
 		<tr>
 			<td>
+				<?php echo $form->labelEx($model,'id_utente'); ?>
+				<?php echo $form->textField($model,'id_utente',array('size'=>45,'maxlength'=>45,'value'=>$_GET['an'])); ?>
+				<?php echo $form->error($model,'id_utente'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
 				<?php echo $form->labelEx($model,'ncontratto'); ?>
 				<?php echo $form->textField($model,'ncontratto',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'ncontratto'); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'utente'); ?>
-				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45,'value'=>$_GET['ut'])); ?>
 				<?php echo $form->error($model,'utente'); ?>
 			</td>
 		</tr>
@@ -45,7 +52,7 @@
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'societa'); ?>
-				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45,'value'=>$_GET['soc'])); ?>
 				<?php echo $form->error($model,'societa'); ?>
 			</td>
 		</tr>

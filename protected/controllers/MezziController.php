@@ -71,7 +71,7 @@ class MezziController extends Controller
 		{
 			$model->attributes=$_POST['Mezzi'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('anagrafica/view','id'=>$_GET['an']));
 		}
 
 		$this->render('create',array(
@@ -108,13 +108,13 @@ class MezziController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionDelete($id)
+	public function actionDelete($id,$an)
 	{
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('anagrafica/view/'.$an));
 	}
 
 	/**

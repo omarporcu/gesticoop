@@ -1,15 +1,15 @@
 <?php
-/* @var $this SocietaController */
-/* @var $model Societa */
+/* @var $this SediController */
+/* @var $model Sedi */
 
 $this->breadcrumbs=array(
-	'Società'=>array('index'),
-	//'Manage',
+	'Sedis'=>array('index'),
+	'Manage',
 );
 
 $this->menu=array(
-	//array('label'=>'List Societa', 'url'=>array('index')),
-	array('label'=>'Nuova Società', 'url'=>array('create')),
+	array('label'=>'List Sedi', 'url'=>array('index')),
+	array('label'=>'Create Sedi', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#societa-grid').yiiGridView('update', {
+	$('#sedi-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,14 +26,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Società</h1>
+<h1>Manage Sedis</h1>
 
-<!--p>
+<p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
 or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p-->
+</p>
 
-<?php echo CHtml::link('Ricerca Avanzata','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
@@ -41,30 +41,21 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'ajaxUpdate'=>'ajaxContent',
-	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('societa/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
-	'id'=>'societa-grid',
+	'id'=>'sedi-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		//'logo',
-		'ragione_sociale',
-		'p_iva',
-		//'tipologia',
-		'amministratore',
-		'email',
-		'gruppo',
-		//'sede',
+		'id_societa',
+		'regione',
+		'provincia',
+		'comune',
+		'indirizzo',
+		/*
+		'cap',
 		'telefono',
-		//'fax',
-		//'c_fiscale',
-		//'numero_iscrcc',
-		//'regione_iscrcc',
-		//'provincia_iscrcc',
-		//'comune_iscrcc',
-		//'data_iscrcc',
-		//'note',
+		'note',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

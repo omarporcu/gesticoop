@@ -2,21 +2,25 @@
 /* @var $this MezziController */
 /* @var $model Mezzi */
 
+$an=$model->proprietario;
+$ut=$model->utente;
+
 $this->breadcrumbs=array(
-	'Mezzi'=>array('index'),
-	$model->targa,
+	'Anagrafica'=>array('anagrafica/index'),
+	$ut=>array('anagrafica/view/'.$an),
+	'Mezzi',
 );
 
 $this->menu=array(
-	array('label'=>'Mezzi', 'url'=>array('index')),
-	array('label'=>'Nuovo Mezzo', 'url'=>array('create')),
+	array('label'=>'Anagrafica', 'url'=>array('anagrafica/view/'.$an)),
+	array('label'=>'Nuovo Mezzo', 'url'=>array('create?an='.$an.'&ut='.$ut)),
 	array('label'=>'Aggiorna Mezzo', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Elimina Mezzo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
+	array('label'=>'Elimina Mezzo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'an'=>$an),'confirm'=>'Sicuro di voler eliminare il Mezzo?')),
 	//array('label'=>'Manage Mezzi', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Mezzo <?php echo $model->targa; ?></h1>
+<h1>Dettaglio Mezzo - Targa: <?php echo $model->targa; ?></h1>
 
 <!--?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
