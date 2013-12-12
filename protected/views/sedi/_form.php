@@ -43,6 +43,7 @@
 					        'showAnim'=>'fold',
 					        'select'=>"js:function(event, ui) {
 										jQuery('#Sedi_comune').val(ui.item.nome);
+										jQuery('#Sedi_cap').val(ui.item.cap);
 										jQuery('#Sedi_regione').val(ui.item.regione);
 										jQuery('#Sedi_provincia').val(ui.item.provincia);
 					                  }",

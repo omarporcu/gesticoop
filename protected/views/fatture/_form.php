@@ -50,7 +50,7 @@
 				<?php echo $form->dropDownList(
 					$model, 
 					'tipo', 
-					array('1'=>'Vendita','2'=>'Acquisto'),
+					array('Vendita'=>'Vendita','Acquisto'=>'Acquisto'),
 					array(
 						'empty'=>'Seleziona Tipologia',
 						'ajax'=>array(

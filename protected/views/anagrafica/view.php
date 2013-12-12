@@ -137,11 +137,11 @@ $this->menu=array(
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('mezzi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'mezzi-grid',
 	'summaryText'=>CHtml::link('[+] Aggiungi Mezzo',Yii::app()->baseUrl.'/mezzi/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
-	'dataProvider'=>Mezzi::model()->searchByAnagrafica($model->id),
+	'dataProvider'=>Mezzi::model()->searchByAnagrafica($nomecognome),
 	//'filter'=>Mezzi::model(),
 	'columns'=>array(
 		'id',
-		//'proprietario',
+		'proprietario',
 		'marca',
 		'modello',
 		'prezzo',

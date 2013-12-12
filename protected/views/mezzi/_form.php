@@ -62,28 +62,14 @@
 			</td>
 		</tr>
 		<tr>
-			<!--td>
-				<?php echo $form->labelEx($model,'proprietario'); ?>
-				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45,'value'=>$_GET['an'])); ?>
-				<!--?php echo $form->dropDownList(
-					$model, 
-					'proprietario', 
-					CHtml::listData(
-						Anagrafica::model()->findAll(array('order'=>'cognome')), 'id', 'concatened'),
-						array(
-							'empty'=>'Seleziona Proprietario',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-							)
-						)
-					);
-				?-->
-				<!--?php echo $form->error($model,'proprietario'); ?>
-			</td-->
 			<td>
-				<?php echo $form->labelEx($model,'utente'); ?>
-				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45,'value'=>$_GET['ut'])); ?>
-				<?php echo $form->error($model,'utente'); ?>
+				<?php echo $form->labelEx($model,'proprietario'); ?>
+				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'proprietario'); ?>
+			<td>
+				<?php echo $form->labelEx($model,'assegnatario'); ?>
+				<?php echo $form->textField($model,'assegnatario',array('size'=>45,'maxlength'=>45,'value'=>$_GET['ut'])); ?>
+				<?php echo $form->error($model,'assegnatario'); ?>
 			</td>
 		</tr>
 		<tr>

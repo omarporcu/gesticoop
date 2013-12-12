@@ -1,6 +1,6 @@
 <?php
 
-class SocietaController extends Controller
+class ContrattiTopController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -32,7 +32,7 @@ class SocietaController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','comuneAutocomplete'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,27 +62,16 @@ class SocietaController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Societa;
+		$model=new ContrattiTop;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Societa']))
+		if(isset($_POST['ContrattiTop']))
 		{
-			$model->attributes=$_POST['Societa'];
-			
-			$uploadedFile=CUploadedFile::getInstance($model, 'logo');
-			$fileName = "{$uploadedFile}";
-			$model->logo = $fileName;
-			
+			$model->attributes=$_POST['ContrattiTop'];
 			if($model->save())
-			{
-				if($fileName)
-				{
-					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/'.$fileName);
-				}
 				$this->redirect(array('view','id'=>$model->id));
-			}
 		}
 
 		$this->render('create',array(
@@ -102,21 +91,11 @@ class SocietaController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Societa']))
+		if(isset($_POST['ContrattiTop']))
 		{
-			$_POST['Societa']['logo'] = $model->logo;		
-			$model->attributes=$_POST['Societa'];
-			
-			$uploadedFile=CUploadedFile::getInstance($model,'image');
-			
+			$model->attributes=$_POST['ContrattiTop'];
 			if($model->save())
-			{
-				if(!empty($uploadedFile))
-				{
-					$uploadedFile->saveAs(Yii::app()->basePath.'/../images/'.$model->logo);
-				}
 				$this->redirect(array('view','id'=>$model->id));
-			}
 		}
 
 		$this->render('update',array(
@@ -140,25 +119,25 @@ class SocietaController extends Controller
 
 	/**
 	 * Lists all models.
-	 */
-/*	public function actionIndex()
+	 
+	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Societa');
+		$dataProvider=new CActiveDataProvider('ContrattiTop');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}
-*/
+	*/
 	/**
 	 * Manages all models.
 	 */
-//	public function actionAdmin()
+	//public function actionAdmin()
 	public function actionIndex()
 	{
-		$model=new Societa('search');
+		$model=new ContrattiTop('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Societa']))
-			$model->attributes=$_GET['Societa'];
+		if(isset($_GET['ContrattiTop']))
+			$model->attributes=$_GET['ContrattiTop'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -169,12 +148,12 @@ class SocietaController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Societa the loaded model
+	 * @return ContrattiTop the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Societa::model()->findByPk($id);
+		$model=ContrattiTop::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -182,44 +161,14 @@ class SocietaController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Societa $model the model to be validated
+	 * @param ContrattiTop $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='societa-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='contratti-top-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-	
-	public function actionComuneAutocomplete()
-	{
-		$riga=array();
-		$res=array();
-		
-		if (isset($_GET['term']))
-		{
-			$qtxt="SELECT nome,provincia,regione,cap FROM tbl_comuni WHERE nome LIKE :nome ORDER by nome";
-			$command =Yii::app()->db->createCommand($qtxt);
-			$command->bindValue(":nome", '%'.$_GET['term'].'%', PDO::PARAM_STR);
-			$res=$command->queryAll();
-									
-		}
-			
-		foreach ($res as $r)
-        {
-                $riga[] = array(
-                        'value'=>$r['nome'],
-                        'provincia'=>$r['provincia'],
-                        'regione'=>$r['regione'],
-                        'cap'=>$r['cap'],
-                );
-        }
-
-	    echo CJSON::encode($riga);
-    	Yii::app()->end();
-	
-	}
-
 }

@@ -1,29 +1,29 @@
 <?php
 
 /**
- * This is the model class for table "tbl_mezzi".
+ * This is the model class for table "tbl_contratti".
  *
- * The followings are the available columns in table 'tbl_mezzi':
+ * The followings are the available columns in table 'tbl_contratti':
  * @property integer $id
- * @property string $marca
- * @property string $modello
- * @property string $prezzo
- * @property string $rata
- * @property string $targa
- * @property string $immatricolazione
- * @property string $proprietario
- * @property string $assegnatario
+ * @property string $ncontratto
+ * @property string $id_utente
  * @property string $utente
+ * @property string $societa
+ * @property string $tipologia
+ * @property string $data_inizio
+ * @property string $data_fine
+ * @property string $ruolo
+ * @property string $provvigione
  * @property string $note
  */
-class Parco extends CActiveRecord
+class ContrattiTop extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'tbl_mezzi';
+		return 'tbl_contratti';
 	}
 
 	/**
@@ -34,11 +34,11 @@ class Parco extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('marca, modello, prezzo, rata, targa, proprietario, assegnatario, utente', 'length', 'max'=>45),
-			array('immatricolazione, note', 'safe'),
+			array('ncontratto, id_utente, utente, societa, tipologia, ruolo, provvigione', 'length', 'max'=>45),
+			array('data_inizio, data_fine, note', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, marca, modello, prezzo, rata, targa, immatricolazione, proprietario, assegnatario, utente, note', 'safe', 'on'=>'search'),
+			array('id, ncontratto, id_utente, utente, societa, tipologia, data_inizio, data_fine, ruolo, provvigione, note', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -60,15 +60,15 @@ class Parco extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'marca' => 'Marca',
-			'modello' => 'Modello',
-			'prezzo' => 'Prezzo',
-			'rata' => 'Rata',
-			'targa' => 'Targa',
-			'immatricolazione' => 'Immatricolazione',
-			'proprietario' => 'Proprietario',
-			'assegnatario' => 'Assegnatario',
+			'ncontratto' => 'Ncontratto',
+			'id_utente' => 'Id Utente',
 			'utente' => 'Utente',
+			'societa' => 'Societa',
+			'tipologia' => 'Tipologia',
+			'data_inizio' => 'Data Inizio',
+			'data_fine' => 'Data Fine',
+			'ruolo' => 'Ruolo',
+			'provvigione' => 'Provvigione',
 			'note' => 'Note',
 		);
 	}
@@ -92,15 +92,15 @@ class Parco extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('marca',$this->marca,true);
-		$criteria->compare('modello',$this->modello,true);
-		$criteria->compare('prezzo',$this->prezzo,true);
-		$criteria->compare('rata',$this->rata,true);
-		$criteria->compare('targa',$this->targa,true);
-		$criteria->compare('immatricolazione',$this->immatricolazione,true);
-		$criteria->compare('proprietario',$this->proprietario,true);
-		$criteria->compare('assegnatario',$this->assegnatario,true);
+		$criteria->compare('ncontratto',$this->ncontratto,true);
+		$criteria->compare('id_utente',$this->id_utente,true);
 		$criteria->compare('utente',$this->utente,true);
+		$criteria->compare('societa',$this->societa,true);
+		$criteria->compare('tipologia',$this->tipologia,true);
+		$criteria->compare('data_inizio',$this->data_inizio,true);
+		$criteria->compare('data_fine',$this->data_fine,true);
+		$criteria->compare('ruolo',$this->ruolo,true);
+		$criteria->compare('provvigione',$this->provvigione,true);
 		$criteria->compare('note',$this->note,true);
 
 		return new CActiveDataProvider($this, array(
@@ -112,20 +112,10 @@ class Parco extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Parco the static model class
+	 * @return ContrattiTop the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-	
-	public function behaviors()
-	{
-    	return array(
-        	'myDateFormat'=>array(
-            	'class'=>'application.components.myDateFormat',
-                	'dateColumns'=>array('immatricolazione'),
-            ),
-        );
-    }
 }

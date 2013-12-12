@@ -1,15 +1,15 @@
 <?php
-/* @var $this FattureController */
-/* @var $model Fatture */
+/* @var $this ContrattiController */
+/* @var $model Contratti */
 
 $this->breadcrumbs=array(
-	'Fatture'=>array('index'),
+	'Contratti'=>array('index'),
 	//'Manage',
 );
 
 $this->menu=array(
-	//array('label'=>'Fatture', 'url'=>array('index')),
-	array('label'=>'Nuova Fattura', 'url'=>array('create')),
+	//array('label'=>'List Contratti', 'url'=>array('index')),
+	array('label'=>'Nuovo Contratto', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -18,7 +18,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$('#fatture-grid').yiiGridView('update', {
+	$('#contratti-grid').yiiGridView('update', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Fatture</h1>
+<h1>Contratti</h1>
 
 <!--p>
 You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
@@ -42,22 +42,22 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'ajaxUpdate'=>'ajaxContent',
-	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('fatture/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
-	'id'=>'fatture-grid',
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('contrattiTop/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'id'=>'contratti-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		//'id',
-		'numero_fattura',
-		'tipo',
+		'ncontratto',
+		'utente',
 		'societa',
-		'cliente',
-		'causale',
-		//'descrizione',
-		'imponibile',
-		'data',
-		'data_accredito',
-		//'note',
+		'tipologia',
+		'data_inizio',
+		'data_fine',
+		'ruolo',
+		/*
+		'provvigione',
+		'note',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

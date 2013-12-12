@@ -33,7 +33,7 @@
 				array('label'=>'Anagrafica', 'url'=>array('/anagrafica')),
 				array('label'=>'Società', 'url'=>array('/societa')),
 				array('label'=>'Mezzi', 'url'=>array('/parco')),
-				array('label'=>'Contratti', 'url'=>array('/contratti')),
+				array('label'=>'Contratti', 'url'=>array('/contrattiTop')),
 				array('label'=>'Prestiti', 'url'=>array('/prestiti')),
 				array('label'=>'Fatture', 'url'=>array('/fatture')),
 				array('label'=>'Clienti', 'url'=>array('/clienti')),

@@ -80,7 +80,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		//LOCAL
-		/*
+		
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=gesticoop',
 			'emulatePrepare' => true,
@@ -88,10 +88,10 @@ return array(
 			'password' => 'root',
 			'charset' => 'utf8',
 		),
-		*/
+		
 
 		//LIVE
-		
+		/*
 		'db'=>array(
 			'connectionString' => 'mysql:host=62.149.150.148;dbname=Sql526871_5',
 			'emulatePrepare' => true,
@@ -99,7 +99,7 @@ return array(
 			'password' => '68f9a750',
 			'charset' => 'utf8',
 		),
-		
+		*/
 		 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

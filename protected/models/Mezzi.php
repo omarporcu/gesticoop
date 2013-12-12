@@ -12,6 +12,7 @@
  * @property string $targa
  * @property string $immatricolazione
  * @property string $proprietario
+ * @property string $assegnatario
  * @property string $utente
   * @property string $note
  */
@@ -43,11 +44,11 @@ class Mezzi extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('marca, modello, prezzo, rata, targa, immatricolazione, proprietario, utente', 'length', 'max'=>45),
-			array('note', 'safe'),
+			array('marca, modello, prezzo, rata, targa, proprietario, assegnatario, utente', 'length', 'max'=>45),
+			array('immatricolazione, note', 'safe'),
 			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, marca, modello, prezzo, rata, targa, immatricolazione, proprietario, utente, note', 'safe', 'on'=>'search'),
+			// @todo Please remove those attributes that should not be searched.
+			array('id, marca, modello, prezzo, rata, targa, immatricolazione, proprietario, assegnatario, utente, note', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +78,7 @@ class Mezzi extends CActiveRecord
 			'targa' => 'Targa',
 			'immatricolazione' => 'Immatricolazione',
 			'proprietario' => 'Proprietario',
+			'assegnatario' => 'Assegnatario',
 			'utente' => 'Utente',
 			'note' => 'Note',
 		);
@@ -101,6 +103,7 @@ class Mezzi extends CActiveRecord
 		$criteria->compare('targa',$this->targa,true);
 		$criteria->compare('immatricolazione',$this->immatricolazione,true);
 		$criteria->compare('proprietario',$this->proprietario,true);
+		$criteria->compare('assegnatario',$this->assegnatario,true);
 		$criteria->compare('utente',$this->utente,true);
 		$criteria->compare('note',$this->note,true);
 
@@ -124,9 +127,10 @@ class Mezzi extends CActiveRecord
 		$criteria->compare('targa',$this->targa,true);
 		$criteria->compare('immatricolazione',$this->immatricolazione,true);
 		$criteria->compare('proprietario',$this->proprietario,true);
+		$criteria->compare('assegnatario',$this->assegnatario,true);
 		$criteria->compare('utente',$this->utente,true);
 		$criteria->compare('note',$this->note,true);
-		$criteria->addCondition("proprietario='$prop'");
+		$criteria->addCondition("assegnatario='$prop'");
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

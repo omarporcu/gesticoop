@@ -58,8 +58,8 @@
 				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
 			<td>
-				<?php echo $form->labelEx($model,'utente'); ?>
-				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->labelEx($model,'assegnatario'); ?>
+				<?php echo $form->textField($model,'assegnatario',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
 		</tr>
 		<tr>

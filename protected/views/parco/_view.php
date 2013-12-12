@@ -61,7 +61,9 @@
 				<?php echo $form->error($model,'proprietario'); ?>
 			</td>
 			<td>
-
+				<?php echo $form->labelEx($model,'assegnatario'); ?>
+				<?php echo $form->textField($model,'assegnatario',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'assegnatario'); ?>
 			</td>
 		</tr>
 		<tr>

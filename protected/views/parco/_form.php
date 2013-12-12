@@ -61,27 +61,23 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'proprietario'); ?>
-				<!--?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?-->
+				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'proprietario'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'assegnatario'); ?>
 				<?php echo $form->dropDownList(
 					$model, 
-					'proprietario', 
+					'assegnatario', 
 					CHtml::listData(
-						Anagrafica::model()->findAll(array('order'=>'cognome')), 'id', 'concatened'),
+						Anagrafica::model()->findAll(array('order'=>'cognome')), 'concatened', 'concatened'),
 						array(
-							'empty'=>'Seleziona Proprietario',
-							'ajax'=>array(
-								'type'=>'POST', //request type
-							)
+							'empty'=>'Seleziona Assegnatario',
 						)
 					);
 				?>
-				<?php echo $form->error($model,'proprietario'); ?>
-			</td-->
-			<!--td>
-				<?php echo $form->labelEx($model,'utente'); ?>
-				<?php echo $form->textField($model,'utente',array('size'=>45,'maxlength'=>45)); ?>
-				<?php echo $form->error($model,'utente'); ?>
-			</td-->
+				<?php echo $form->error($model,'assegnatario'); ?>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2">

@@ -92,6 +92,11 @@
 		</tr>
 		<tr>
 			<td>
+				<?php echo $form->labelEx($model,'indirizzo'); ?>
+				<?php echo $form->textField($model,'indirizzo',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'indirizzo'); ?>
+			</td>
+			<td>
 				<?php echo $form->labelEx($model,'comune'); ?>
 				<?php
 					$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
@@ -106,6 +111,7 @@
 					        'showAnim'=>'fold',
 					        'select'=>"js:function(event, ui) {
 										jQuery('#Societa_comune').val(ui.item.nome);
+										jQuery('#Societa_cap').val(ui.item.cap);
 										jQuery('#Societa_regione').val(ui.item.regione);
 										jQuery('#Societa_provincia').val(ui.item.provincia);
 					                  }",
@@ -114,6 +120,13 @@
 					))
 				?>
 				<?php echo $form->error($model,'comune'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'cap'); ?>
+				<?php echo $form->textField($model,'cap',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'cap'); ?>
 			</td>
 		</tr>
 		<tr>

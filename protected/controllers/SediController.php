@@ -178,7 +178,7 @@ class SediController extends Controller
 		
 		if (isset($_GET['term']))
 		{
-			$qtxt="SELECT nome,provincia,regione FROM tbl_comuni WHERE nome LIKE :nome";
+			$qtxt="SELECT nome,provincia,regione,cap FROM tbl_comuni WHERE nome LIKE :nome";
 			$command =Yii::app()->db->createCommand($qtxt);
 			$command->bindValue(":nome", '%'.$_GET['term'].'%', PDO::PARAM_STR);
 			$res=$command->queryAll();
@@ -191,6 +191,7 @@ class SediController extends Controller
                         'value'=>$r['nome'],
                         'provincia'=>$r['provincia'],
                         'regione'=>$r['regione'],
+                        'cap'=>$r['cap'],
                 );
         }
 

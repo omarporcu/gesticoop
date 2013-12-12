@@ -175,14 +175,14 @@ class FattureController extends Controller
 	public function actionAggiornaEsterno()
 	{
 		if(isset($_POST['Fatture']['tipo']))
-			if ($_POST['Fatture']['tipo']=="1")
+			if ($_POST['Fatture']['tipo']=="Vendita")
 			{
 				$data=Clienti::model()->findAll(array('order'=>'ragione_sociale'));
 			    $data=CHtml::listData($data,'ragione_sociale','ragione_sociale');
 			    
 			    echo CHtml::tag('option',array('value'=>''),'Seleziona Cliente',true);
 			
-			} else if ($_POST['Fatture']['tipo']=="2") {
+			} else if ($_POST['Fatture']['tipo']=="Acquisto") {
 			
 				$data=Fornitori::model()->findAll(array('order'=>'ragione_sociale'));
 			    $data=CHtml::listData($data,'ragione_sociale','ragione_sociale');

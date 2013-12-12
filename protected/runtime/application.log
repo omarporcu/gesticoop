@@ -8343,3 +8343,66 @@ REQUEST_URI=/gesticoop/contratti/create
 in /private/var/www/gesticoop/protected/views/contratti/create.php (5)
 in /private/var/www/gesticoop/protected/controllers/ContrattiController.php (79)
 in /private/var/www/gesticoop/index.php (13)
+2013/12/12 09:26:55 [warning] [application] Failed to set unsafe attribute "logo" of "Societa".
+in /private/var/www/gesticoop/protected/controllers/SocietaController.php (72)
+in /private/var/www/gesticoop/index.php (13)
+2013/12/12 09:59:18 [error] [php] Undefined variable: data (/private/var/www/gesticoop/protected/controllers/FattureController.php:193)
+Stack trace:
+#0 /private/var/www/gesticoop/yii/framework/web/filters/CFilterChain.php(133): FattureController->runAction()
+#1 /private/var/www/gesticoop/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#2 /private/var/www/gesticoop/yii/framework/web/CController.php(1145): CAccessControlFilter->filter()
+#3 /private/var/www/gesticoop/yii/framework/web/filters/CInlineFilter.php(58): FattureController->filterAccessControl()
+#4 /private/var/www/gesticoop/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter()
+#5 /private/var/www/gesticoop/yii/framework/web/CController.php(291): CFilterChain->run()
+#6 /private/var/www/gesticoop/yii/framework/web/CController.php(265): FattureController->runActionWithFilters()
+#7 /private/var/www/gesticoop/yii/framework/web/CWebApplication.php(282): FattureController->run()
+#8 /private/var/www/gesticoop/yii/framework/web/CWebApplication.php(141): CWebApplication->runController()
+#9 /private/var/www/gesticoop/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#10 /private/var/www/gesticoop/index.php(13): CWebApplication->run()
+REQUEST_URI=/gesticoop/Fatture/aggiornaEsterno
+in /private/var/www/gesticoop/protected/controllers/FattureController.php (193)
+in /private/var/www/gesticoop/index.php (13)
+2013/12/12 10:01:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /private/var/www/gesticoop/protected/controllers/AnagraficaController.php:158
+Stack trace:
+#0 /private/var/www/gesticoop/protected/controllers/AnagraficaController.php(55): AnagraficaController->loadModel('3')
+#1 [internal function]: AnagraficaController->actionView('3')
+#2 /private/var/www/gesticoop/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(AnagraficaController), Array)
+#3 /private/var/www/gesticoop/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(AnagraficaController), Object(ReflectionMethod), Array)
+#4 /private/var/www/gesticoop/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /private/var/www/gesticoop/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /private/var/www/gesticoop/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /private/var/www/gesticoop/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /private/var/www/gesticoop/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /private/var/www/gesticoop/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /private/var/www/gesticoop/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /private/var/www/gesticoop/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /private/var/www/gesticoop/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /private/var/www/gesticoop/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('anagrafica/view')
+#14 /private/var/www/gesticoop/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /private/var/www/gesticoop/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gesticoop/anagrafica/3
+HTTP_REFERER=http://localhost/gesticoop/fatture/index
+---
+2013/12/12 10:01:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in /private/var/www/gesticoop/protected/controllers/AnagraficaController.php:158
+Stack trace:
+#0 /private/var/www/gesticoop/protected/controllers/AnagraficaController.php(55): AnagraficaController->loadModel('3')
+#1 [internal function]: AnagraficaController->actionView('3')
+#2 /private/var/www/gesticoop/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(AnagraficaController), Array)
+#3 /private/var/www/gesticoop/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(AnagraficaController), Object(ReflectionMethod), Array)
+#4 /private/var/www/gesticoop/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#5 /private/var/www/gesticoop/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 /private/var/www/gesticoop/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#7 /private/var/www/gesticoop/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 /private/var/www/gesticoop/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 /private/var/www/gesticoop/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 /private/var/www/gesticoop/yii/framework/web/CController.php(291): CFilterChain->run()
+#11 /private/var/www/gesticoop/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 /private/var/www/gesticoop/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#13 /private/var/www/gesticoop/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('anagrafica/view')
+#14 /private/var/www/gesticoop/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#15 /private/var/www/gesticoop/index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gesticoop/anagrafica/3
+HTTP_REFERER=http://localhost/gesticoop/fatture
+---
