@@ -77,8 +77,18 @@
 				<?php echo $form->textField($model,'imponibile',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
 			<td>
+				<?php echo $form->labelEx($model,'iva'); ?>
+				<?php echo $form->textField($model,'iva',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'tot'); ?>
+				<?php echo $form->textField($model,'tot',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
 				<?php echo $form->labelEx($model,'data_accredito'); ?>
-				<?php echo $form->textField($model,'data_accredito'); ?>
+				<?php echo $form->textField($model,'data_accredito', array('placeholder'=>'gg/mm/aaaa')); ?>
 			</td>
 		</tr>
 		<tr>

@@ -131,6 +131,26 @@
 				<?php echo $form->textField($model,'imponibile',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'imponibile'); ?>
 			</td>
+			<script type="text/javascript">
+				$("#Fatture_imponibile").blur(
+					function() {
+						document.getElementById('Fatture_tot').value=(parseFloat(document.getElementById('Fatture_imponibile').value)+(parseFloat(document.getElementById('Fatture_imponibile').value)*parseFloat(document.getElementById('Fatture_iva').value)/100)).toFixed(2);
+						document.getElementById('Fatture_imponibile').value=parseFloat(document.getElementById('Fatture_imponibile').value).toFixed(2);
+					}
+				)
+			</script>
+			<td>
+				<?php echo $form->labelEx($model,'iva'); ?>
+				<?php echo $form->textField($model,'iva',array('size'=>45,'maxlength'=>45, 'value'=>'22')); ?>
+				<?php echo $form->error($model,'iva'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'tot'); ?>
+				<?php echo $form->textField($model,'tot',array('size'=>45,'maxlength'=>45, 'disabled'=>'disabled')); ?>
+				<?php echo $form->error($model,'tot'); ?>
+			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data_accredito'); ?>
 				<?php echo $form->textField($model,'data_accredito', array('placeholder'=>'gg/mm/aaaa')); ?>

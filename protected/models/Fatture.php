@@ -12,6 +12,8 @@
  * @property string $causale
  * @property string $descrizione
  * @property string $imponibile
+ * @property string $iva
+ * @property string $tot
  * @property string $data
  * @property string $data_accredito
  * @property string $note
@@ -44,11 +46,11 @@ class Fatture extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('numero_fattura, tipo, societa, cliente, causale, descrizione, imponibile', 'length', 'max'=>45),
+			array('numero_fattura, tipo, societa, cliente, causale, descrizione, imponibile, iva, tot', 'length', 'max'=>45),
 			array('data, data_accredito, note', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, numero_fattura, tipo, societa, cliente, causale, descrizione, imponibile, data, data_accredito, note', 'safe', 'on'=>'search'),
+			array('id, numero_fattura, tipo, societa, cliente, causale, descrizione, imponibile, iva, tot, data, data_accredito, note', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,6 +79,8 @@ class Fatture extends CActiveRecord
 			'causale' => 'Causale',
 			'descrizione' => 'Descrizione',
 			'imponibile' => 'Imponibile',
+			'iva' => 'IVA',
+			'tot' => 'Totale',
 			'data' => 'Data',
 			'data_accredito' => 'Data Accredito',
 			'note' => 'Note',
@@ -102,6 +106,8 @@ class Fatture extends CActiveRecord
 		$criteria->compare('causale',$this->causale,true);
 		$criteria->compare('descrizione',$this->descrizione,true);
 		$criteria->compare('imponibile',$this->imponibile,true);
+		$criteria->compare('iva',$this->iva,true);
+		$criteria->compare('tot',$this->tot,true);
 		$criteria->compare('data',$this->data,true);
 		$criteria->compare('data_accredito',$this->data_accredito,true);
 		$criteria->compare('note',$this->note,true);
