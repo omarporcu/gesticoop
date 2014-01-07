@@ -47,6 +47,21 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'assicurazione'); ?>
+		<?php echo $form->textField($model,'assicurazione'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'scadenza_assicurazione'); ?>
+		<?php echo $form->textField($model,'scadenza_assicurazione'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'scadenza_bollo'); ?>
+		<?php echo $form->textField($model,'scadenza_bollo'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'proprietario'); ?>
 		<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
 	</div>

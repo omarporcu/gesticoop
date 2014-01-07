@@ -75,14 +75,31 @@
 				</div>
 			</td>
 		</tr>
+			<tr>
+				<td>
+					<?php echo $form->labelEx($model,'prezzo'); ?>
+					<?php echo $form->textField($model,'prezzo',array('size'=>45,'maxlength'=>45)); ?>
+				</td>
+				<td>
+					<?php echo $form->labelEx($model,'rata'); ?>
+					<?php echo $form->textField($model,'rata'); ?>
+				</td>
+			</tr>
+		</tr>
 		<tr>
 			<td>
-				<?php echo $form->labelEx($model,'prezzo'); ?>
-				<?php echo $form->textField($model,'prezzo',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->labelEx($model,'assicurazione'); ?>
+				<?php echo $form->textField($model,'assicurazione',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
 			<td>
-				<?php echo $form->labelEx($model,'rata'); ?>
-				<?php echo $form->textField($model,'rata',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->labelEx($model,'scadenza_assicurazione'); ?>
+				<?php echo $form->textField($model,'scadenza_assicurazione',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'scadenza_bollo'); ?>
+				<?php echo $form->textField($model,'scadenza_bollo',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
 		</tr>
 		<tr>

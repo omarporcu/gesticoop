@@ -82,6 +82,22 @@
 			</tr>
 		</tr>
 		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'assicurazione'); ?>
+				<?php echo $form->textField($model,'assicurazione',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'scadenza_assicurazione'); ?>
+				<?php echo $form->textField($model,'scadenza_assicurazione',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'scadenza_bollo'); ?>
+				<?php echo $form->textField($model,'scadenza_bollo',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">

@@ -11,6 +11,9 @@
  * @property string $rata
  * @property string $targa
  * @property string $immatricolazione
+ * @property string $assicurazione
+ * @property string $scadenza_assicurazione
+ * @property string $scdenza_bollo
  * @property string $proprietario
  * @property string $assegnatario
  * @property string $utente
@@ -34,11 +37,11 @@ class Parco extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('marca, modello, prezzo, rata, targa, proprietario, assegnatario, utente', 'length', 'max'=>45),
-			array('immatricolazione, note', 'safe'),
+			array('marca, modello, prezzo, rata, targa, proprietario, assegnatario, utente, assicurazione', 'length', 'max'=>45),
+			array('immatricolazione, scadenza_assicurazione, scadenza_bollo, note', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, marca, modello, prezzo, rata, targa, immatricolazione, proprietario, assegnatario, utente, note', 'safe', 'on'=>'search'),
+			array('id, marca, modello, prezzo, rata, targa, immatricolazione, assicurazione, scadenza_assicurazione, scadenza_bollo, proprietario, assegnatario, utente, note', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +69,9 @@ class Parco extends CActiveRecord
 			'rata' => 'Rata',
 			'targa' => 'Targa',
 			'immatricolazione' => 'Immatricolazione',
+			'assicurazione' => 'Assicurazione',
+			'scadenza_assicurazione' => 'Scadenza Assicurazione',
+			'scadenza_bollo' => 'Scadenza Bollo',
 			'proprietario' => 'Proprietario',
 			'assegnatario' => 'Assegnatario',
 			'utente' => 'Utente',
@@ -98,6 +104,9 @@ class Parco extends CActiveRecord
 		$criteria->compare('rata',$this->rata,true);
 		$criteria->compare('targa',$this->targa,true);
 		$criteria->compare('immatricolazione',$this->immatricolazione,true);
+		$criteria->compare('assicurazione',$this->assicurazione,true);
+		$criteria->compare('scadenza_assicurazione',$this->scadenza_assicurazione,true);
+		$criteria->compare('scadenza_bollo',$this->scadenza_bollo,true);
 		$criteria->compare('proprietario',$this->proprietario,true);
 		$criteria->compare('assegnatario',$this->assegnatario,true);
 		$criteria->compare('utente',$this->utente,true);
@@ -124,8 +133,7 @@ class Parco extends CActiveRecord
     	return array(
         	'myDateFormat'=>array(
             	'class'=>'application.components.myDateFormat',
-                	'dateColumns'=>array('immatricolazione'),
-            ),
+                	'dateColumns'=>array('immatricolazione, scadenza_assicurazione, scadenza_bollo'),            ),
         );
     }
 }
