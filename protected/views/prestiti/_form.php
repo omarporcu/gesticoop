@@ -26,7 +26,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td>
 				<?php echo $form->labelEx($model,'causale'); ?>
 				<?php echo $form->textField($model,'causale',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'causale'); ?>
@@ -86,9 +86,9 @@
 					$model, 
 					'anagrafica', 
 					CHtml::listData(
-						Mezzi::model()->findAll(), 'targa', 'targa'),
+						Anagrafica::model()->findAll(array('order'=>'cognome')), 'concatened', 'concatened'),
 						array(
-							'empty'=>'Seleziona Anagrafica',
+							'empty'=>'Seleziona Assegnatario',
 						)
 					);
 				?>

@@ -12,7 +12,7 @@ class myDateFormat extends CActiveRecordBehavior
      * Convert from $dateFormat to ISO 9075 dates before saving
      */
         public function beforeSave($event)
-        {
+		{
                 foreach( $this->dateColumns as $date )
                 {
                         $_dt = $this->Owner->{$date};

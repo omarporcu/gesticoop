@@ -34,3 +34,49 @@ $this->menu=array(
 )); ?-->
 
 <?php echo $this->renderPartial('_view', array('model'=>$model)); ?>
+
+	<table style="margin-bottom: 0px !important; margin-top: 2em !important;">
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dettaglio Rate - Prestito #<?php echo $model->id; ?>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('rateprestito/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'id'=>'rate-grid',
+	//'summaryText'=>CHtml::link('[+] Aggiungi Documento',Yii::app()->baseUrl.'/documenti/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
+	'summaryText'=>'',
+		'dataProvider'=>Rateprestito::model()->searchByPrestiti($model->id),
+		//'filter'=>Mezzi::model(),
+	'columns'=>array(
+		//'id',
+		//'prestito',
+		//'societa',
+		//'mezzo',
+		'rata',
+		array(
+			'name'=>'data',
+			'header'=>'Data Scadenza',
+		),
+		array(
+			'name'=>'pagata',
+			'htmlOptions'=>array('style'=>'font-weight: bold'),
+		),
+		array(
+			'name'=>'importo',
+			'footer'=>Rateprestito::model()->getTotals($model->id),
+		),
+		//'note',
+		/*array(
+			'class'=>'CButtonColumn',
+		),*/
+	),
+)); ?>
+

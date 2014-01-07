@@ -74,7 +74,7 @@ class Prestiti extends CActiveRecord
 			'scadenza' => 'Scadenza',
 			'data' => 'Data',
 			'societa' => 'Societa',
-			'anagrafica' => 'Mezzo',
+			'anagrafica' => 'Assegnatario',
 			'altro' => 'Altro',
 		);
 	}
@@ -114,5 +114,49 @@ class Prestiti extends CActiveRecord
             ),
         );
     }
+	
+	protected function afterSave()
+	{
+		parent::afterSave();
+		
+		if($this->isNewRecord) {
+
+			//echo "Nuovo Record";
+
+			$rate = "1";
+			$data = date('d/m/Y',strtotime($this->data));
+			if (isset($this->n_rate) && $this->n_rate>0)
+				$rate = $this->n_rate;
+
+			//$dataplus = date('d/m/Y',strtotime($this->data."+1 month"));
+			//echo "Data= ".$data."<br>";
+	   		//echo "Data+= ".$dataplus;
+	   		//Yii::app()->end();
+			
+			for ($i=0; $i < $rate; $i++) { 
+
+				$rateprestito = new Rateprestito;
+				$rateprestito->prestito=$this->id;
+				$rateprestito->rata=$i+1;
+				$rateprestito->importo=$this->totale/$rate;
+				$rateprestito->pagata="da pagare";
+				$rateprestito->data=date('d/m/Y',strtotime($this->data."+$i month"));
+				
+				$rateprestito->save(false);
+				
+			}
+			
+		} 
+		
+        if(!$rateprestito->save()) {
+			echo "Prestito= ".$rateprestito->prestito;
+			echo "<br>";
+			echo "didn't work";
+   			Yii::app()->end();
+        }
+
+		return parent::afterSave();
+		
+	}
 
 }

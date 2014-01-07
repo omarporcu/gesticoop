@@ -1,6 +1,6 @@
 <?php
 
-class PrestitiController extends Controller
+class RateprestitoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -62,14 +62,14 @@ class PrestitiController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Prestiti;
+		$model=new Rateprestito;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Prestiti']))
+		if(isset($_POST['Rateprestito']))
 		{
-			$model->attributes=$_POST['Prestiti'];
+			$model->attributes=$_POST['Rateprestito'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -91,9 +91,9 @@ class PrestitiController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Prestiti']))
+		if(isset($_POST['Rateprestito']))
 		{
-			$model->attributes=$_POST['Prestiti'];
+			$model->attributes=$_POST['Rateprestito'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -119,25 +119,25 @@ class PrestitiController extends Controller
 
 	/**
 	 * Lists all models.
-	 */
-/*	public function actionIndex()
+	 
+	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Prestiti');
+		$dataProvider=new CActiveDataProvider('Rateprestito');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
-	}
-*/
+	}*/
+
 	/**
 	 * Manages all models.
 	 */
-//	public function actionAdmin()
+	//public function actionAdmin()
 	public function actionIndex()
 	{
-		$model=new Prestiti('search');
+		$model=new Rateprestito('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Prestiti']))
-			$model->attributes=$_GET['Prestiti'];
+		if(isset($_GET['Rateprestito']))
+			$model->attributes=$_GET['Rateprestito'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -148,12 +148,12 @@ class PrestitiController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Prestiti the loaded model
+	 * @return Rateprestito the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Prestiti::model()->findByPk($id);
+		$model=Rateprestito::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -161,15 +161,14 @@ class PrestitiController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Prestiti $model the model to be validated
+	 * @param Rateprestito $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='prestiti-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='rateprestito-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-	
 }

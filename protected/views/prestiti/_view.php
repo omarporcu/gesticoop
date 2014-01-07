@@ -24,7 +24,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td>
 				<?php echo $form->labelEx($model,'causale'); ?>
 				<?php echo $form->textField($model,'causale',array('size'=>45,'maxlength'=>45)); ?>
 			</td>
@@ -84,10 +84,6 @@
 			</td>
 		</tr>
 	</table>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
-	</div>
 
 <?php $this->endWidget(); ?>
 
