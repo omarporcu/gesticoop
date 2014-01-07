@@ -566,3 +566,12 @@ REQUEST_URI=/gesticoop/mezzi/create
 in /private/var/www/gesticoop/protected/views/mezzi/create.php (5)
 in /private/var/www/gesticoop/protected/controllers/MezziController.php (79)
 in /private/var/www/gesticoop/index.php (13)
+2014/01/07 21:36:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/logo.gif".' in /private/var/www/gesticoop/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /private/var/www/gesticoop/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('images/logo.gif')
+#1 /private/var/www/gesticoop/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#2 /private/var/www/gesticoop/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gesticoop/images/logo.gif
+HTTP_REFERER=http://localhost/gesticoop/societa/24
+---
