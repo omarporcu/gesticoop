@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Rate', 'url'=>array('index')),
 	//array('label'=>'Nuova Rata', 'url'=>array('create')),
-	array('label'=>'Aggiorna Rata', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Rata', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Rata', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Rateprestito', 'url'=>array('admin')),
 );

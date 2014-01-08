@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Contratti', 'url'=>array('index')),
 	array('label'=>'Nuovo Contratti', 'url'=>array('create')),
-	array('label'=>'Aggiorna Contratto', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Contratto', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Contratto', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Sicuro di voler eliminare questo Contratto?')),
 	//array('label'=>'Manage ContrattiTop', 'url'=>array('admin')),
 );

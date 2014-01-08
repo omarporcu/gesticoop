@@ -11,11 +11,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Anagrafica', 'url'=>array('anagrafica/index')),
 	array('label'=>'Nuovo Documento', 'url'=>array('create')),
-	array('label'=>'Dettagli Documento', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Visualizza Documento', 'url'=>array('view', 'id'=>$model->id)),
 	//array('label'=>'Manage Documenti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Aggiorna Documento - <?php echo $model->anagrafica->cognome.' '.$model->anagrafica->nome; ?></h1>
+<h1>Modifica Documento - <?php echo $model->anagrafica->cognome.' '.$model->anagrafica->nome; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

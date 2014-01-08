@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Società', 'url'=>array('societa/view/'.$soc)),
 	array('label'=>'Nuova Sede', 'url'=>array('create?soc='.$soc.'&societa='.$societa)),
-	array('label'=>'Aggiorna Sede', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Sede', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Sede', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'soc'=>$soc),'confirm'=>'Sicuro di voler eliminare la sede?')),
 	//array('label'=>'Manage Sedi', 'url'=>array('admin')),
 );

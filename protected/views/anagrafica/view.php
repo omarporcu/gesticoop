@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Anagrafica', 'url'=>array('index')),
 	array('label'=>'Nuova Anagrafica', 'url'=>array('create')),
-	array('label'=>'Aggiorna Anagrafica', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Anagrafica', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Anagrafica', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Anagrafica', 'url'=>array('admin')),
 	array('label'=>'Conteggi Mensili', 'url'=>array('#')),

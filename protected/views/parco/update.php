@@ -9,13 +9,13 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Parco', 'url'=>array('index')),
-	array('label'=>'Create Parco', 'url'=>array('create')),
-	array('label'=>'View Parco', 'url'=>array('view', 'id'=>$model->id)),
-	array('label'=>'Manage Parco', 'url'=>array('admin')),
+	array('label'=>'Mezzi', 'url'=>array('index')),
+	array('label'=>'Nuovo Mezzo', 'url'=>array('create')),
+	array('label'=>'Visualizza Mezzo', 'url'=>array('view', 'id'=>$model->id)),
+	//array('label'=>'Manage Mezzi', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Update Parco <?php echo $model->id; ?></h1>
+<h1>Modifica Mezzo <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

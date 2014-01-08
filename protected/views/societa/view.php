@@ -13,7 +13,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Società', 'url'=>array('index')),
 	array('label'=>'Nuova Società', 'url'=>array('create')),
-	array('label'=>'Aggiorna Società', 'url'=>array('update', 'id'=>$soc)),
+	array('label'=>'Modifica Società', 'url'=>array('update', 'id'=>$soc)),
 	array('label'=>'Elimina Società', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$soc),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Societa', 'url'=>array('admin')),
 );

@@ -15,11 +15,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Contratti', 'url'=>array('index')),
 	array('label'=>'Nuovo Contratto', 'url'=>array('create?an='.$an.'&ut='.$ut.'&soc='.$model->societa)),
-	array('label'=>'Dettagli Contratto', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Visualizza Contratto', 'url'=>array('view', 'id'=>$model->id)),
 	//array('label'=>'Manage Contratti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Aggiorna Contratto <?php echo $model->ncontratto; ?></h1>
+<h1>Modifica Contratto <?php echo $model->ncontratto; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -11,11 +11,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Rate', 'url'=>array('index')),
 	array('label'=>'Nuova Rata', 'url'=>array('create')),
-	array('label'=>'Dettagli Rata', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Visualizza Rata', 'url'=>array('view', 'id'=>$model->id)),
 	//array('label'=>'Manage Rateprestito', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Aggiorna Rata <?php echo $model->id; ?></h1>
+<h1>Modifica Rata <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

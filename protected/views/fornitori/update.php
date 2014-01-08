@@ -11,11 +11,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Fornitori', 'url'=>array('index')),
 	array('label'=>'Nuovo Fornitore', 'url'=>array('create')),
-	array('label'=>'Dettagli Fornitore', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Visualizza Fornitore', 'url'=>array('view', 'id'=>$model->id)),
 	//array('label'=>'Manage Fornitori', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Aggiorna Fornitore <?php echo $model->id; ?></h1>
+<h1>Modifica Fornitore <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

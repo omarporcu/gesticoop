@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Mezzi', 'url'=>array('index')),
 	array('label'=>'Nuovo Mezzo', 'url'=>array('create')),
-	array('label'=>'Aggiorna Mezzo', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Mezzo', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Mezzo', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Sei sicuro di voler eliminare il mezzo?')),
 	//array('label'=>'Manage Parco', 'url'=>array('admin')),
 );

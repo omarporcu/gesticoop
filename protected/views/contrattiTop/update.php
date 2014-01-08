@@ -11,10 +11,10 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Contratti', 'url'=>array('index')),
 	array('label'=>'Nuovo Contratto', 'url'=>array('create')),
-	array('label'=>'Dettagli Contratto', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Visualizza Contratto', 'url'=>array('view', 'id'=>$model->id)),
 );
 ?>
 
-<h1>Aggiorna Contratto <?php echo $model->id; ?></h1>
+<h1>Modifica Contratto <?php echo $model->id; ?></h1>
 
 <?php $this->renderPartial('_form', array('model'=>$model)); ?>

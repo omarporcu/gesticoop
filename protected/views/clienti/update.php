@@ -11,11 +11,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Clienti', 'url'=>array('index')),
 	array('label'=>'Nuovo Cliente', 'url'=>array('create')),
-	array('label'=>'Dettagli Cliente', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Visualizza Cliente', 'url'=>array('view', 'id'=>$model->id)),
 	//array('label'=>'Manage Clienti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Aggiorna Cliente <?php echo $model->id; ?></h1>
+<h1>Modifica Cliente <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

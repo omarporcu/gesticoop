@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Anagrafica', 'url'=>array('anagrafica/view/'.$an)),
 	array('label'=>'Nuovo Documento', 'url'=>array('create?an='.$an.'&ut='.$ut)),
-	array('label'=>'Aggiorna Documento', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Documento', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Documento', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'an'=>$an),'confirm'=>'Sicuro di voler eliminare il documento?')),
 	//array('label'=>'Manage Documenti', 'url'=>array('admin')),
 );

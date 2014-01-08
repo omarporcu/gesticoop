@@ -10,7 +10,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Fatture', 'url'=>array('index')),
 	array('label'=>'Nuova Fattura', 'url'=>array('create')),
-	array('label'=>'Aggiorna Fattura', 'url'=>array('update', 'id'=>$model->id)),
+	array('label'=>'Modifica Fattura', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Fattura', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	//array('label'=>'Manage Fatture', 'url'=>array('admin')),
 );

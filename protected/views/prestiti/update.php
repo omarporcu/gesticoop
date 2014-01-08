@@ -11,11 +11,11 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Prestiti', 'url'=>array('index')),
 	array('label'=>'Nuovo Prestito', 'url'=>array('create')),
-	array('label'=>'Dettagli Prestito', 'url'=>array('view', 'id'=>$model->id)),
+	array('label'=>'Visualizza Prestito', 'url'=>array('view', 'id'=>$model->id)),
 	//array('label'=>'Manage Prestiti', 'url'=>array('admin')),
 );
 ?>
 
-<h1>Aggiorna Prestito <?php echo $model->id; ?></h1>
+<h1>Modifica Prestito <?php echo $model->id; ?></h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
