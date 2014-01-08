@@ -17,11 +17,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<!--div class="row">
-		<?php echo $form->labelEx($model,'id_anagrafica'); ?>
-		<?php echo $form->textField($model,'id_anagrafica',array('size'=>45,'maxlength'=>45)); ?>
-	</div-->
-
 	<table>
 		<tr>
 			<td colspan="2">
@@ -33,29 +28,25 @@
 			</td>
 		</tr>
 		<tr>
-			<!--td>
-				<?php echo $form->labelEx($model,'tipologia'); ?>
-				<?php echo $form->textField($model,'tipologia',array('size'=>45,'maxlength'=>45)); ?>
-			</td-->
 			<td>
 				<?php echo $form->labelEx($model,'numero_documento'); ?>
-				<?php echo $form->textField($model,'numero_documento',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->numero_documento); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'ente_rilascio'); ?>
-				<?php echo $form->textField($model,'ente_rilascio',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->ente_rilascio); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data_rilascio'); ?>
-				<?php echo $form->textField($model,'data_rilascio', array('placeholder'=>'gg/mm/aaaa')); ?> 
+				<?php echo CHtml::encode($model->data_rilascio); ?> 
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'scadenza'); ?>
-				<?php echo $form->textField($model,'scadenza', array('placeholder'=>'gg/mm/aaaa')); ?> 
+				<?php echo CHtml::encode($model->scadenza); ?> 
 			</td>
 			<td></td>
 		</tr>
@@ -71,7 +62,7 @@
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'note'); ?>
-				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo CHtml::encode($model->note); ?>
 			</td>
 		</tr>
 	</table>

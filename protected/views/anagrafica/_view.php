@@ -26,21 +26,21 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'nome'); ?>
-				<?php echo $form->textField($model,'nome',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->nome); ?>
 			</td>
 			<td align="bottom">
 				<?php echo $form->labelEx($model,'cognome'); ?>
-				<?php echo $form->textField($model,'cognome',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->cognome); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'data_nascita'); ?>
-				<?php echo $form->textField($model,'data_nascita'); ?> 
+				<?php echo CHtml::encode($model->data_nascita); ?> 
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'c_fiscale'); ?>
-				<?php echo $form->textField($model,'c_fiscale',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->c_fiscale); ?>
 			</td>
 		</tr>
 		<tr>
@@ -55,7 +55,7 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'id_societa'); ?>
-				<?php echo $form->textField($model,'id_societa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->id_societa); ?>
 			</td>
 		</tr>
 		<tr>
@@ -70,17 +70,17 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'comune_nascita'); ?>
-				<?php echo $form->textField($model,'comune_nascita'); ?> 
+				<?php echo CHtml::encode($model->comune_nascita); ?> 
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'regione_nascita'); ?>
-				<?php echo $form->textField($model,'regione_nascita'); ?> 
+				<?php echo CHtml::encode($model->regione_nascita); ?> 
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'provincia_nascita'); ?>
-				<?php echo $form->textField($model,'provincia_nascita'); ?> 
+				<?php echo CHtml::encode($model->provincia_nascita); ?> 
 			</td>
 		</tr>
 		<tr>
@@ -95,21 +95,21 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'comune_residenza'); ?>
-				<?php echo $form->textField($model,'comune_residenza'); ?> 
+				<?php echo CHtml::encode($model->comune_residenza); ?> 
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'indirizzo_residenza'); ?>
-				<?php echo $form->textField($model,'indirizzo_residenza',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->indirizzo_residenza); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'regione_residenza'); ?>
-				<?php echo $form->textField($model,'regione_residenza'); ?> 
+				<?php echo CHtml::encode($model->regione_residenza); ?> 
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'provincia_residenza'); ?>
-				<?php echo $form->textField($model,'provincia_residenza'); ?> 
+				<?php echo CHtml::encode($model->provincia_residenza); ?> 
 			</td>
 		</tr>
 		<tr>
@@ -124,17 +124,17 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'telefono'); ?>
-				<?php echo $form->textField($model,'telefono',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->telefono); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'fax'); ?>
-				<?php echo $form->textField($model,'fax',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->fax); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'cellulare'); ?>
-				<?php echo $form->textField($model,'cellulare',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->cellulare); ?>
 			</td>
 		</tr>
 		<tr>
@@ -149,7 +149,7 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'email'); ?>
-				<?php echo $form->textField($model,'email',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->email); ?>
 			</td>
 		</tr>
 		<tr>
@@ -164,7 +164,7 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'iban'); ?>
-				<?php echo $form->textField($model,'iban',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->iban); ?>
 			</td>
 		</tr>
 		<tr>
@@ -179,7 +179,7 @@
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'note'); ?>
-				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo CHtml::encode($model->note); ?>
 			</td>
 		</tr>
 	</table>

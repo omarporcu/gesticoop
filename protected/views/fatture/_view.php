@@ -26,17 +26,17 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'numero_fattura'); ?>
-				<?php echo $form->textField($model,'numero_fattura',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->numero_fattura); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data'); ?>
-				<?php echo $form->textField($model,'data'); ?>
+				<?php echo CHtml::encode($model->data); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'tipo'); ?>
-				<?php echo $form->textField($model,'tipo',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->tipo); ?>
 			</td>
 			<td></td>
 		</tr>
@@ -52,43 +52,43 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'societa'); ?>
-				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->societa); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'cliente'); ?>
-				<?php echo $form->textField($model,'cliente',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->cliente); ?>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'causale'); ?>
-				<?php echo $form->textField($model,'causale',array('size'=>116,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->causale); ?>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'descrizione'); ?>
-				<?php echo $form->textArea($model,'descrizione',array('rows'=>6, 'cols'=>83)); ?>
+				<?php echo CHtml::encode($model->descrizione); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'imponibile'); ?>
-				<?php echo $form->textField($model,'imponibile',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->imponibile); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'iva'); ?>
-				<?php echo $form->textField($model,'iva',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->iva); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'tot'); ?>
-				<?php echo $form->textField($model,'tot',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->tot); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data_accredito'); ?>
-				<?php echo $form->textField($model,'data_accredito', array('placeholder'=>'gg/mm/aaaa')); ?>
+				<?php echo CHtml::encode($model->data_accredito); ?>
 			</td>
 		</tr>
 		<tr>
@@ -103,7 +103,7 @@
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'note'); ?>
-				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo CHtml::encode($model->note); ?>
 			</td>
 		</tr>
 	</table>

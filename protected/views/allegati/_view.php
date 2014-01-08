@@ -15,16 +15,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<!--div class="row">
-		<?php echo $form->textField($model,'idsezione',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'idsezione'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'sezione'); ?>
-		<?php echo $form->textField($model,'sezione',array('size'=>45,'maxlength'=>45)); ?>
-	</div-->
-
 	<table>
 		<tr>
 			<td colspan="2">
@@ -38,29 +28,19 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'nome'); ?>
-				<?php echo $form->textField($model,'nome',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->nome); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'data_inserimento'); ?>
-				<?php echo $form->textField($model,'data_inserimento'); ?>
+				<?php echo CHtml::encode($model->data_inserimento); ?>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'descrizione'); ?>
-				<?php echo $form->textField($model,'descrizione',array('size'=>96,'maxlength'=>96)); ?>
+				<?php echo CHtml::encode($model->descrizione); ?>
 			</td>
 		</tr>
-		<!--tr>
-			<td>
-				<?php echo $form->labelEx($model,'privato'); ?>
-				<?php echo $form->textField($model,'privato',array('size'=>45,'maxlength'=>45)); ?>
-			</td>
-			<td>
-				<?php echo $form->labelEx($model,'visibile'); ?>
-				<?php echo $form->textField($model,'visibile',array('size'=>45,'maxlength'=>45)); ?>
-			</td>
-		</tr-->
 		<tr>
 			<td>
 					<?php echo $form->labelEx($model,'allegato'); ?>

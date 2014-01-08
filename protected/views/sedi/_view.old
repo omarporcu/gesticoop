@@ -1,47 +1,89 @@
 <?php
 /* @var $this SediController */
-/* @var $data Sedi */
+/* @var $model Sedi */
+/* @var $form CActiveForm */
 ?>
 
-<div class="view">
+<div class="form">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'sedi-form',
+	'enableAjaxValidation'=>false,
+)); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_societa')); ?>:</b>
-	<?php echo CHtml::encode($data->id_societa); ?>
-	<br />
+	<p class="note">I campi con <span class="required">*</span> sono obbligatori.</p>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('regione')); ?>:</b>
-	<?php echo CHtml::encode($data->regione); ?>
-	<br />
+	<?php echo $form->errorSummary($model); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('provincia')); ?>:</b>
-	<?php echo CHtml::encode($data->provincia); ?>
-	<br />
+	<?php 
+		if(isset($_GET['soc']))
+		{
+			echo $form->hiddenField($model, 'id_societa',array('value'=>$_GET['soc']));
+		} 
+		else 
+		{
+			echo $form->hiddenField($model, 'id_societa');
+		} ?>
+	<?php echo $form->error($model,'id_societa'); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('comune')); ?>:</b>
-	<?php echo CHtml::encode($data->comune); ?>
-	<br />
+	<table>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'comune'); ?>
+				<?php
+					$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+						'model'=>$model,
+						'attribute'=>'comune',
+					    'htmlOptions'=>array(
+					    	'placeholder'=>'Autocompleta Comune',
+							'size'=>45,	
+						),
+						'source'=>$this->createUrl('sedi/comuneAutocomplete'),
+						'options'=>array(
+					        'showAnim'=>'fold',
+					        'select'=>"js:function(event, ui) {
+										jQuery('#Sedi_comune').val(ui.item.nome);
+										jQuery('#Sedi_regione').val(ui.item.regione);
+										jQuery('#Sedi_provincia').val(ui.item.provincia);
+					                  }",
+							
+					    ),
+					))
+				?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'indirizzo'); ?>
+				<?php echo $form->textField($model,'indirizzo',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'regione'); ?>
+				<?php echo $form->textField($model,'regione',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'provincia'); ?>
+				<?php echo $form->textField($model,'provincia',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'cap'); ?>
+				<?php echo $form->textField($model,'cap',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'telefono'); ?>
+				<?php echo $form->textField($model,'telefono',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'note'); ?>
+				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+			</td>
+		</tr>
+	</table>
+	
+<?php $this->endWidget(); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('indirizzo')); ?>:</b>
-	<?php echo CHtml::encode($data->indirizzo); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cap')); ?>:</b>
-	<?php echo CHtml::encode($data->cap); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('telefono')); ?>:</b>
-	<?php echo CHtml::encode($data->telefono); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('note')); ?>:</b>
-	<?php echo CHtml::encode($data->note); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+</div><!-- form -->

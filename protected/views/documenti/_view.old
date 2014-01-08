@@ -1,43 +1,81 @@
 <?php
 /* @var $this DocumentiController */
-/* @var $data Documenti */
+/* @var $model Documenti */
+/* @var $form CActiveForm */
 ?>
 
-<div class="view">
+<div class="form">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'documenti-form',
+	// Please note: When you enable ajax validation, make sure the corresponding
+	// controller action is handling ajax validation correctly.
+	// There is a call to performAjaxValidation() commented in generated controller code.
+	// See class documentation of CActiveForm for details on this.
+	'enableAjaxValidation'=>false,
+)); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_anagrafica')); ?>:</b>
-	<?php echo CHtml::encode($data->id_anagrafica); ?>
-	<br />
+	<?php echo $form->errorSummary($model); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('tipologia')); ?>:</b>
-	<?php echo CHtml::encode($data->tipologia); ?>
-	<br />
+	<!--div class="row">
+		<?php echo $form->labelEx($model,'id_anagrafica'); ?>
+		<?php echo $form->textField($model,'id_anagrafica',array('size'=>45,'maxlength'=>45)); ?>
+	</div-->
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('data_rilascio')); ?>:</b>
-	<?php echo CHtml::encode($data->data_rilascio); ?>
-	<br />
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dettagli Documento
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<!--td>
+				<?php echo $form->labelEx($model,'tipologia'); ?>
+				<?php echo $form->textField($model,'tipologia',array('size'=>45,'maxlength'=>45)); ?>
+			</td-->
+			<td>
+				<?php echo $form->labelEx($model,'numero_documento'); ?>
+				<?php echo $form->textField($model,'numero_documento',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'ente_rilascio'); ?>
+				<?php echo $form->textField($model,'ente_rilascio',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'data_rilascio'); ?>
+				<?php echo $form->textField($model,'data_rilascio', array('placeholder'=>'gg/mm/aaaa')); ?> 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'scadenza'); ?>
+				<?php echo $form->textField($model,'scadenza', array('placeholder'=>'gg/mm/aaaa')); ?> 
+			</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Note
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'note'); ?>
+				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+			</td>
+		</tr>
+	</table>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ente_rilascio')); ?>:</b>
-	<?php echo CHtml::encode($data->ente_rilascio); ?>
-	<br />
+<?php $this->endWidget(); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('numero_documento')); ?>:</b>
-	<?php echo CHtml::encode($data->numero_documento); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('scadenza')); ?>:</b>
-	<?php echo CHtml::encode($data->scadenza); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('note')); ?>:</b>
-	<?php echo CHtml::encode($data->note); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+</div><!-- form -->

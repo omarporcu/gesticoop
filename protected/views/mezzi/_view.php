@@ -26,21 +26,21 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'marca'); ?>
-				<?php echo $form->textField($model,'marca',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->marca); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'modello'); ?>
-				<?php echo $form->textField($model,'modello',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->modello); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'targa'); ?>
-				<?php echo $form->textField($model,'targa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->targa); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'immatricolazione'); ?>
-				<?php echo $form->textField($model,'immatricolazione'); ?>
+				<?php echo CHtml::encode($model->immatricolazione); ?>
 			</td>
 		</tr>
 		<tr>
@@ -55,11 +55,11 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'proprietario'); ?>
-				<?php echo $form->textField($model,'proprietario',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->proprietario); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'assegnatario'); ?>
-				<?php echo $form->textField($model,'assegnatario',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->assegnatario); ?>
 			</td>
 		</tr>
 		<tr>
@@ -73,28 +73,28 @@
 			<tr>
 				<td>
 					<?php echo $form->labelEx($model,'prezzo'); ?>
-					<?php echo $form->textField($model,'prezzo',array('size'=>45,'maxlength'=>45)); ?>
+					<?php echo CHtml::encode($model->prezzo); ?>
 				</td>
 				<td>
 					<?php echo $form->labelEx($model,'rata'); ?>
-					<?php echo $form->textField($model,'rata'); ?>
+					<?php echo CHtml::encode($model->rata); ?>
 				</td>
 			</tr>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'assicurazione'); ?>
-				<?php echo $form->textField($model,'assicurazione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->assicurazione); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'scadenza_assicurazione'); ?>
-				<?php echo $form->textField($model,'scadenza_assicurazione',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->scadenza_assicurazione); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'scadenza_bollo'); ?>
-				<?php echo $form->textField($model,'scadenza_bollo',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->scadenza_bollo); ?>
 			</td>
 		</tr>
 		<tr>
@@ -109,7 +109,7 @@
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'note'); ?>
-				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo CHtml::encode($model->note); ?>
 			</td>
 		</tr>
 	</table>

@@ -28,17 +28,17 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'prestito'); ?>
-				<?php echo $form->textField($model,'prestito',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->prestito); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'societa'); ?>
-				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->societa); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'anagrafica'); ?>
-				<?php echo $form->textField($model,'anagrafica',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->anagrafica); ?>
 			</td>
 		</tr>
 		<tr>
@@ -53,21 +53,21 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'rata'); ?>
-				<?php echo $form->textField($model,'rata',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->rata); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'importo'); ?>
-				<?php echo $form->textField($model,'importo',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->importo); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'data'); ?>
-				<?php echo $form->textField($model,'data',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->data); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'pagata'); ?>
-				<?php echo $form->textField($model,'pagata',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->pagata); ?>
 			</td>
 		</tr>
 		<tr>
@@ -82,7 +82,7 @@
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'note'); ?>
-				<?php echo $form->textArea($model,'note',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo CHtml::encode($model->note); ?>
 			</td>
 		</tr>
 	</table>

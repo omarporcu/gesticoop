@@ -1,47 +1,79 @@
 <?php
 /* @var $this AllegatiController */
-/* @var $data Allegati */
+/* @var $model Allegati */
+/* @var $form CActiveForm */
 ?>
 
-<div class="view">
+<div class="form">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'allegati-form',
+	'enableAjaxValidation'=>false,
+)); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('sezione')); ?>:</b>
-	<?php echo CHtml::encode($data->sezione); ?>
-	<br />
+	<p class="note">I campi con <span class="required">*</span> sono obbligatori.</p>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('idsezione')); ?>:</b>
-	<?php echo CHtml::encode($data->idsezione); ?>
-	<br />
+	<?php echo $form->errorSummary($model); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('allegato')); ?>:</b>
-	<?php echo CHtml::encode($data->allegato); ?>
-	<br />
+	<!--div class="row">
+		<?php echo $form->textField($model,'idsezione',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'idsezione'); ?>
+	</div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
-	<?php echo CHtml::encode($data->nome); ?>
-	<br />
+	<div class="row">
+		<?php echo $form->labelEx($model,'sezione'); ?>
+		<?php echo $form->textField($model,'sezione',array('size'=>45,'maxlength'=>45)); ?>
+	</div-->
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descrizione')); ?>:</b>
-	<?php echo CHtml::encode($data->descrizione); ?>
-	<br />
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dati Allegato
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'nome'); ?>
+				<?php echo $form->textField($model,'nome',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'data_inserimento'); ?>
+				<?php echo $form->textField($model,'data_inserimento'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<?php echo $form->labelEx($model,'descrizione'); ?>
+				<?php echo $form->textField($model,'descrizione',array('size'=>96,'maxlength'=>96)); ?>
+			</td>
+		</tr>
+		<!--tr>
+			<td>
+				<?php echo $form->labelEx($model,'privato'); ?>
+				<?php echo $form->textField($model,'privato',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'visibile'); ?>
+				<?php echo $form->textField($model,'visibile',array('size'=>45,'maxlength'=>45)); ?>
+			</td>
+		</tr-->
+		<tr>
+			<td>
+					<?php echo $form->labelEx($model,'allegato'); ?>
+				<center>
+					<a href="../files/<?php echo $model->allegato; ?>" target="_blank">
+						<img src="http://www.google.com/images/icons/product/docs-64.png"><br>
+						<?php echo $model->allegato; ?>
+					</a>
+				</center>
+			</td>
+		</tr>
+	</table>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('data_inserimento')); ?>:</b>
-	<?php echo CHtml::encode($data->data_inserimento); ?>
-	<br />
+<?php $this->endWidget(); ?>
 
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('privato')); ?>:</b>
-	<?php echo CHtml::encode($data->privato); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('visibile')); ?>:</b>
-	<?php echo CHtml::encode($data->visibile); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+</div><!-- form -->

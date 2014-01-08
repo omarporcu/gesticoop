@@ -26,27 +26,27 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'causale'); ?>
-				<?php echo $form->textField($model,'causale',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->causale); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'totale'); ?>
-				<?php echo $form->textField($model,'totale',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->totale); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'n_rate'); ?>
-				<?php echo $form->textField($model,'n_rate',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->n_rate); ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'data'); ?>
-				<?php echo $form->textField($model,'data'); ?>
+				<?php echo CHtml::encode($model->data); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'scadenza'); ?>
-				<?php echo $form->textField($model,'scadenza'); ?>
+				<?php echo CHtml::encode($model->scadenza); ?>
 			</td>
 		</tr>
 		<tr>
@@ -61,11 +61,11 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'societa'); ?>
-				<?php echo $form->textField($model,'societa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->societa); ?>
 			</td>
 			<td>
 				<?php echo $form->labelEx($model,'anagrafica'); ?>
-				<?php echo $form->textField($model,'anagrafica',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo CHtml::encode($model->anagrafica); ?>
 			</td>
 		</tr>
 		<tr>
@@ -80,7 +80,7 @@
 		<tr>
 			<td colspan="2">
 				<?php echo $form->labelEx($model,'altro'); ?>
-				<?php echo $form->textArea($model,'altro',array('rows'=>6, 'cols'=>50)); ?>
+				<?php echo CHtml::encode($model->altro); ?>
 			</td>
 		</tr>
 	</table>
