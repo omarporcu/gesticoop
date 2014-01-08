@@ -164,3 +164,26 @@ $this->menu=array(
 			</td>
 		</tr>
 	</table>
+	
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'ajaxUpdate'=>'ajaxContent',
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('conteggi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'id'=>'conteggi-grid',
+	'summaryText'=>CHtml::link('[+] Aggiungi Conteggio',Yii::app()->baseUrl.'/conteggi/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
+	'dataProvider'=>Conteggi::model()->searchByAnagrafica($model->id),
+	'filter'=>Conteggi::model(),
+	'columns'=>array(
+		'mese',
+		'anno',
+		//'anagrafica',
+		'targa',
+		'mansione',
+		'societa',
+		'citta',
+		//'totale',
+		/*array(
+			'class'=>'CButtonColumn',
+		),*/
+	),
+)); ?>
+	

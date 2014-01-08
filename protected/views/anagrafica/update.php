@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Anagrafica'=>array('index'),
 	$model->cognome.' '.$model->nome=>array('view','id'=>$model->id),
-	'Aggiorna',
+	'Modifica',
 );
 
 $this->menu=array(

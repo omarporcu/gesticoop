@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Prestiti'=>array('index'),
 	$model->id=>array('view','id'=>$model->id),
-	'Aggiorna',
+	'Modifica',
 );
 
 $this->menu=array(

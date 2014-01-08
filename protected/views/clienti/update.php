@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Clienti'=>array('index'),
 	$model->ragione_sociale=>array('view','id'=>$model->id),
-	'Aggiorna',
+	'Modifica',
 );
 
 $this->menu=array(

@@ -5,7 +5,7 @@
 $this->breadcrumbs=array(
 	'Allegati'=>array('index'),
 	$model->id=>array('view','id'=>$model->id),
-	'Aggiorna',
+	'Modifica',
 );
 
 $this->menu=array(

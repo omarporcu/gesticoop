@@ -30,7 +30,8 @@ return array (
   'The column must be specified in the format of "Name:Type:Label", where "Type" and "Label" are optional.' => 'La colonna deve essere specificata nel formato "Name:Type:Label", dove "Type" e "Label" sono opzionali.',
   'The property "itemView" cannot be empty.' => 'La proprietà "itemView" non può essere vuota.',
   'Total 1 result.|Total {count} results.' => 'Totale di 1 risultato.|Totale di {count} risultati.',
-  'Update' => 'Aggiorna',
+  //'Update' => 'Aggiorna',
+  'Update' => 'Modifica',
   'View' => 'Vedi',
   '{class} must specify "model" and "attribute" or "name" property values.' => '{class} deve specificare il/i valore/i delle proprietà "model" e "attribute" o "name".',
 );
