@@ -205,6 +205,58 @@
 			<td colspan="2">
 				<div class="portlet-decoration">
 					<div class="portlet-title">
+						Sede Operativa
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'sede_operativa'); ?>
+				<?php echo $form->textField($model,'sede_operativa',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'sede_operativa'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'referente'); ?>
+				<?php echo $form->textField($model,'referente',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'referente'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'indirizzo_so'); ?>
+				<?php echo $form->textField($model,'indirizzo_so',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'indirizzo_so'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'citta_so'); ?>
+				<?php echo $form->textField($model,'citta_so',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'citta_so'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'cap_so'); ?>
+				<?php echo $form->textField($model,'cap_so',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'cap_so'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'tel_so'); ?>
+				<?php echo $form->textField($model,'tel_so',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'tel_so'); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'mail_so'); ?>
+				<?php echo $form->textField($model,'mail_so',array('size'=>45,'maxlength'=>45)); ?>
+				<?php echo $form->error($model,'mail_so'); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
 						Note
 					</div>
 				</div>

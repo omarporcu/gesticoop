@@ -25,6 +25,13 @@
  * @property string $provincia_iscrcc
  * @property string $comune_iscrcc
  * @property string $data_iscrcc
+ * @property string $sede_operativa
+ * @property string $referente
+ * @property string $indirizzo_so
+ * @property string $cap_so
+ * @property string $citta_so
+ * @property string $tel_so
+ * @property string $mail_so
  * @property string $note
  */
 class Clienti extends CActiveRecord
@@ -58,11 +65,11 @@ class Clienti extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ragione_sociale, tipologia, logo, amministratore, regione, provincia, comune, cap, indirizzo, gruppo, email, telefono, fax, p_iva, c_fiscale, numero_iscrcc, regione_iscrcc, provincia_iscrcc, comune_iscrcc', 'length', 'max'=>45),
+			array('ragione_sociale, tipologia, logo, amministratore, regione, provincia, comune, cap, indirizzo, gruppo, email, telefono, fax, p_iva, c_fiscale, numero_iscrcc, regione_iscrcc, provincia_iscrcc, comune_iscrcc, sede_operativa, referente, indirizzo_so, cap_so, citta_so, tel_so, mail_so', 'length', 'max'=>45),
 			array('data_iscrcc, note', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, ragione_sociale, tipologia, logo, amministratore, regione, provincia, comune, cap, indirizzo, gruppo, email, telefono, fax, p_iva, c_fiscale, numero_iscrcc, regione_iscrcc, provincia_iscrcc, comune_iscrcc, data_iscrcc, note', 'safe', 'on'=>'search'),
+			array('id, ragione_sociale, tipologia, logo, amministratore, regione, provincia, comune, cap, indirizzo, gruppo, email, telefono, fax, p_iva, c_fiscale, numero_iscrcc, regione_iscrcc, provincia_iscrcc, comune_iscrcc, data_iscrcc, sede_operativa, referente, indirizzo_so, cap_so, citta_so, tel_so, mail_so, note', 'safe', 'on'=>'search'),
 			array('logo', 'file', 'types'=>'jpg, gif, png', 'allowEmpty'=>TRUE, 'on'=>'insert,update'),
 		);
 	}
@@ -105,6 +112,13 @@ class Clienti extends CActiveRecord
 			'provincia_iscrcc' => 'Provincia',
 			'comune_iscrcc' => 'Comune',
 			'data_iscrcc' => 'Data',
+			'sede_operativa' => 'Sede Operativa',
+			'referente' => 'Referente',
+			'indirizzo_so' => 'Indirizzo',
+			'cap_so' => 'CAP',
+			'citta_so' => 'Città',
+			'tel_so' => 'Telefono',
+			'mail_so' => 'Email',
 			'note' => 'Note',
 		);
 	}
@@ -141,6 +155,13 @@ class Clienti extends CActiveRecord
 		$criteria->compare('provincia_iscrcc',$this->provincia_iscrcc,true);
 		$criteria->compare('comune_iscrcc',$this->comune_iscrcc,true);
 		$criteria->compare('data_iscrcc',$this->data_iscrcc,true);
+		$criteria->compare('sede_operativa',$this->sede_operativa,true);
+		$criteria->compare('referente',$this->referente,true);
+		$criteria->compare('indirizzo_so',$this->indirizzo_so,true);
+		$criteria->compare('cap_so',$this->cap_so,true);
+		$criteria->compare('citta_so',$this->citta_so,true);
+		$criteria->compare('tel_so',$this->tel_so,true);
+		$criteria->compare('mail_so',$this->mail_so,true);
 		$criteria->compare('note',$this->note,true);
 
 		return new CActiveDataProvider($this, array(
