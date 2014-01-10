@@ -95,7 +95,7 @@ class VocicontController extends Controller
 		{
 			$model->attributes=$_POST['Vocicont'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('conteggi/view','id'=>$model->id_conteggio));
 		}
 
 		$this->render('update',array(

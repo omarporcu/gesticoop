@@ -37,7 +37,7 @@
 					$model, 
 					'utente', 
 					CHtml::listData(
-						Anagrafica::model()->findAll(), 'nome', 'nome'),
+						Anagrafica::model()->findAll(array('order'=>'cognome')), 'concatened', 'concatened'),
 						array(
 							'empty'=>'Seleziona Utente',
 						)

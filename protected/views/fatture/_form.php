@@ -148,7 +148,7 @@
 		<tr>
 			<td>
 				<?php echo $form->labelEx($model,'tot'); ?>
-				<?php echo $form->textField($model,'tot',array('size'=>45,'maxlength'=>45, 'disabled'=>'disabled')); ?>
+				<?php echo $form->textField($model,'tot',array('size'=>45,'maxlength'=>45)); ?>
 				<?php echo $form->error($model,'tot'); ?>
 			</td>
 			<td>

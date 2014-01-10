@@ -70,7 +70,7 @@ class Prestiti extends CActiveRecord
 			'id' => 'ID',
 			'causale' => 'Causale',
 			'totale' => 'Totale',
-			'n_rate' => 'N Rate',
+			'n_rate' => 'Numero Rate',
 			'scadenza' => 'Scadenza',
 			'data' => 'Data',
 			'societa' => 'Societa',
@@ -141,6 +141,8 @@ class Prestiti extends CActiveRecord
 				$rateprestito->importo=$this->totale/$rate;
 				$rateprestito->pagata="da pagare";
 				$rateprestito->data=date('d/m/Y',strtotime($this->data."+$i month"));
+				$rateprestito->societa=$this->societa;
+				$rateprestito->anagrafica=$this->anagrafica;
 				
 				$rateprestito->save(false);
 				
@@ -148,12 +150,12 @@ class Prestiti extends CActiveRecord
 			
 		} 
 		
-        if(!$rateprestito->save()) {
+       /* if(!$rateprestito->save()) {
 			echo "Prestito= ".$rateprestito->prestito;
 			echo "<br>";
 			echo "didn't work";
    			Yii::app()->end();
-        }
+        }*/
 
 		return parent::afterSave();
 		

@@ -50,6 +50,7 @@ class ContrattiTop extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+		
 		);
 	}
 
@@ -60,7 +61,7 @@ class ContrattiTop extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'ncontratto' => 'Ncontratto',
+			'ncontratto' => 'Numero Contratto',
 			'id_utente' => 'Id Utente',
 			'utente' => 'Utente',
 			'societa' => 'Societa',
@@ -118,4 +119,15 @@ class ContrattiTop extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function behaviors()
+	{
+    	return array(
+        	'myDateFormat'=>array(
+            	'class'=>'application.components.myDateFormat',
+                	'dateColumns'=>array('data_inizio', 'data_fine',),
+            ),
+        );
+    }
+	
 }

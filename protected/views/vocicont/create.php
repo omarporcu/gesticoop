@@ -2,7 +2,7 @@
 /* @var $this VocicontController */
 /* @var $model Vocicont */
 
-$id_cont=$_GET['id'];
+$id_cont=$_GET['id_cont'];
 
 $this->breadcrumbs=array(
 	'Voci Conteggio'=>array('index'),

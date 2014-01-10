@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'tbl_conteggi':
  * @property integer $id
+ * @property string $id_utente
  * @property string $anagrafica
  * @property string $targa
  * @property string $mansione
@@ -33,10 +34,10 @@ class Conteggi extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('anagrafica, targa, mansione, societa, citta, mese, anno, totale, note', 'length', 'max'=>45),
+			array('anagrafica, id_utente targa, mansione, societa, citta, mese, anno, totale, note', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, anagrafica, targa, mansione, societa, citta, mese, anno, totale, note', 'safe', 'on'=>'search'),
+			array('id, anagrafica, id_utente, targa, mansione, societa, citta, mese, anno, totale, note', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +60,7 @@ class Conteggi extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'id_utente' => 'ID Utente',
 			'anagrafica' => 'Anagrafica',
 			'targa' => 'Targa',
 			'mansione' => 'Mansione',
@@ -90,6 +92,7 @@ class Conteggi extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('id_utente',$this->id_utente,true);
 		$criteria->compare('anagrafica',$this->anagrafica,true);
 		$criteria->compare('targa',$this->targa,true);
 		$criteria->compare('mansione',$this->mansione,true);
@@ -113,6 +116,7 @@ class Conteggi extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('id_utente',$this->id_utente,true);
 		$criteria->compare('anagrafica',$this->anagrafica,true);
 		$criteria->compare('targa',$this->targa,true);
 		$criteria->compare('mansione',$this->mansione,true);

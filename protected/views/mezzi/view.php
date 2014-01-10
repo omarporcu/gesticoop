@@ -2,12 +2,12 @@
 /* @var $this MezziController */
 /* @var $model Mezzi */
 
-$an=$model->proprietario;
+$an=$model->assegnatario;
 $ut=$model->utente;
 
 $this->breadcrumbs=array(
 	'Anagrafica'=>array('anagrafica/index'),
-	$ut=>array('anagrafica/view/'.$an),
+	$an=>array('anagrafica/view/'.$an),
 	'Mezzi',
 );
 

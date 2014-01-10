@@ -3,19 +3,19 @@
 /* @var $model Conteggi */
 
 $an=$model->anagrafica;
-//$ut=$_GET['ut'];
+$ut=$model->id_utente;
 
 $this->breadcrumbs=array(
 	'Anagrafica'=>array('anagrafica/index'),
-	$an=>array('anagrafica/view/'.$an),
+	$an=>array('anagrafica/view/'.$ut),
 	'Conteggi',
 );
 
 $this->menu=array(
 	array('label'=>'Anagrafica', 'url'=>array('anagrafica/view/'.$an)),
-	array('label'=>'Nuovo Conteggio', 'url'=>array('create?an='.$an)),
+	array('label'=>'Nuovo Conteggio', 'url'=>array('create?an='.$an.'&ut='.$ut)),
 	array('label'=>'Modifica Conteggio', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Elimina Conteggio', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'an'=>$an),'confirm'=>'Sicuro di voler eliminare il Mezzo?')),
+	array('label'=>'Elimina Conteggio', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'an'=>$an),'confirm'=>'Sicuro di voler eliminare il Conteggio?')),
 );
 ?>
 
@@ -53,10 +53,10 @@ $this->menu=array(
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'ajaxUpdate'=>'ajaxContent',
-	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('vocicont/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
+	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('vocicont/update?an='.$an.'&ut='.$ut.'&id_cont='.$model->id.'&id=') . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'vocicont-grid',
 	//'summaryText'=>CHtml::link('[+] Aggiungi Conteggio',Yii::app()->baseUrl.'/vocicont/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
-	'summaryText'=>CHtml::link('[+] Aggiungi Voce',Yii::app()->baseUrl.'/vocicont/create?id='.$model->id,array('class'=>'')),
+	'summaryText'=>CHtml::link('[+] Aggiungi Voce',Yii::app()->baseUrl.'/vocicont/create?id_cont='.$model->id,array('class'=>'')),
 	'dataProvider'=>Vocicont::model()->searchByConteggio($model->id),
 	//'filter'=>Vocicont::model(),
 	'columns'=>array(

@@ -116,6 +116,14 @@ class Fatture extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	/*protected function beforeSave() {
+		
+		parent::beforeSave();
+		
+		$fatture->tot=$fatture->imponibile*$fatture->iva/100;
+		$fatture->save(false);
+	}*/
 
 	public function behaviors()
 	{

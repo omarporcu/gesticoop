@@ -133,7 +133,7 @@ class Parco extends CActiveRecord
     	return array(
         	'myDateFormat'=>array(
             	'class'=>'application.components.myDateFormat',
-                	'dateColumns'=>array('immatricolazione, scadenza_assicurazione, scadenza_bollo'),            ),
+                	'dateColumns'=>array('immatricolazione', 'scadenza_assicurazione', 'scadenza_bollo'),            ),
         );
     }
 }

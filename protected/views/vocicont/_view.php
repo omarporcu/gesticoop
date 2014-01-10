@@ -1,29 +1,53 @@
 <?php
 /* @var $this VocicontController */
-/* @var $data Vocicont */
+/* @var $model Vocicont */
+/* @var $form CActiveForm */
 ?>
 
-<div class="view">
+<div class="form">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'vocicont-form',
+	'enableAjaxValidation'=>false,
+)); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id_conteggio')); ?>:</b>
-	<?php echo CHtml::encode($data->id_conteggio); ?>
-	<br />
+	<table>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Dettaglio
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'tipologia'); ?>
+				<?php echo CHtml::encode($model->tipologia); ?>
+			</td>
+			<td>
+				<?php echo $form->labelEx($model,'causale'); ?>
+				<?php echo CHtml::encode($model->causale); ?>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<div class="portlet-decoration">
+					<div class="portlet-title">
+						Importo
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $form->labelEx($model,'importo'); ?>
+				<?php echo CHtml::encode($model->importo); ?>
+			</td>
+		</tr>
+	</table>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('tipologia')); ?>:</b>
-	<?php echo CHtml::encode($data->tipologia); ?>
-	<br />
+<?php $this->endWidget(); ?>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('causale')); ?>:</b>
-	<?php echo CHtml::encode($data->causale); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('importo')); ?>:</b>
-	<?php echo CHtml::encode($data->importo); ?>
-	<br />
-
-
-</div>
+</div><!-- form -->

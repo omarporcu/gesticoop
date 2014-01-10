@@ -14,6 +14,8 @@
 	<p class="note">I campi con <span class="required">*</span> sono obbligatori.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	
+	<?php echo $form->hiddenField($model, 'utente', array('value'=>$_GET['ut'])); ?>
 
 	<table>
 		<tr>

@@ -170,8 +170,8 @@ $this->menu=array(
 	'selectionChanged'=>"function(id){window.location='" . Yii::app()->urlManager->createUrl('conteggi/view', array('id'=>'')) . "' + $.fn.yiiGridView.getSelection(id);}",
 	'id'=>'conteggi-grid',
 	'summaryText'=>CHtml::link('[+] Aggiungi Conteggio',Yii::app()->baseUrl.'/conteggi/create?an='.$model->id.'&ut='.$nomecognome,array('class'=>'')),
-	'dataProvider'=>Conteggi::model()->searchByAnagrafica($model->id),
-	'filter'=>Conteggi::model(),
+	'dataProvider'=>Conteggi::model()->searchByAnagrafica($nomecognome),
+	//'filter'=>Conteggi::model(),
 	'columns'=>array(
 		'mese',
 		'anno',

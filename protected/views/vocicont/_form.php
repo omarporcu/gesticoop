@@ -15,7 +15,15 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->hiddenField($model,'id_conteggio',array('size'=>45,'maxlength'=>45,'value'=>$_GET['id'])); ?>
+	<?php 
+		if(isset($_GET['id_cont']))
+		{
+			echo $form->hiddenField($model, 'id_conteggio',array('value'=>$_GET['id_cont']));
+		} 
+		else 
+		{
+			echo $form->hiddenField($model, 'id_conteggio');
+		} ?>
 	<?php echo $form->error($model,'id_conteggio'); ?>
 
 	<table>

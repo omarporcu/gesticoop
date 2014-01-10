@@ -2,6 +2,7 @@
 /* @var $this ConteggiController */
 /* @var $model Conteggi */
 /* @var $form CActiveForm */
+
 ?>
 
 <div class="form">
@@ -15,8 +16,17 @@
 
 	<?php echo $form->errorSummary($model); ?>
 	
-	<?php echo $form->hiddenField($model,'anagrafica',array('size'=>45,'maxlength'=>45,'value'=>$_GET['ut'])); ?>
-	<?php echo $form->error($model,'anagrafica'); ?>
+	<?php if (isset($_GET['ut']) && isset($_GET['an'])) {
+		echo $form->hiddenField($model,'anagrafica',array('value'=>$_GET['ut']));
+		echo $form->error($model,'anagrafica');
+		echo $form->hiddenField($model,'id_utente',array('value'=>$_GET['an']));
+		echo $form->error($model,'id_utente');
+	} else {
+		echo $form->hiddenField($model,'anagrafica');
+		echo $form->error($model,'anagrafica');
+		echo $form->hiddenField($model,'id_utente');
+		echo $form->error($model,'id_utente');
+	} ?>
 	
 	<table>
 		<tr>

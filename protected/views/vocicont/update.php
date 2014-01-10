@@ -2,6 +2,8 @@
 /* @var $this VocicontController */
 /* @var $model Vocicont */
 
+$id_cont=$model->id_conteggio;
+
 $this->breadcrumbs=array(
 	'Vociconts'=>array('index'),
 	$model->id=>array('view','id'=>$model->id),
