@@ -124,6 +124,8 @@ class Vocicont extends CActiveRecord
 		$connection=Yii::app()->db;
 		$command=$connection->createCommand("SELECT SUM(importo) FROM tbl_vocicont WHERE id_conteggio=$id");
 		
-		return "Totali: ".$amount=$command->queryScalar();
+		$amount=$command->queryScalar();
+		
+		return number_format($amount,2);
 	}
 }

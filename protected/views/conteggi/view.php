@@ -16,6 +16,7 @@ $this->menu=array(
 	array('label'=>'Nuovo Conteggio', 'url'=>array('create?an='.$an.'&ut='.$ut)),
 	array('label'=>'Modifica Conteggio', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Elimina Conteggio', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id,'an'=>$an),'confirm'=>'Sicuro di voler eliminare il Conteggio?')),
+	array('label'=>'Stampa', 'url'=>array('printview', 'id'=>$model->id)),
 );
 ?>
 
@@ -61,7 +62,10 @@ $this->menu=array(
 	//'filter'=>Vocicont::model(),
 	'columns'=>array(
 		'tipologia',
-		'causale',
+		array(
+			'name'=>'causale',
+			'footer'=>'Totale',
+		),
 		array(
 			'name'=>'importo',
 			'footer'=>Vocicont::model()->getTotals($model->id),

@@ -91,6 +91,13 @@
 				<?php echo $form->error($model,'importo'); ?>
 			</td>
 		</tr>
+			<script type="text/javascript">
+				$("#Vocicont_importo").blur(
+					function() {
+						document.getElementById('Vocicont_importo').value=parseFloat(document.getElementById('Vocicont_importo').value).toFixed(2);
+					}
+				)
+			</script>
 	</table>
 
 	<div class="row buttons">

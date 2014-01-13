@@ -28,7 +28,7 @@ class ConteggiController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','printView'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -140,6 +140,15 @@ class ConteggiController extends Controller
 
 		$this->render('admin',array(
 			'model'=>$model,
+		));
+	}
+
+	public function actionPrintView($id)
+	{
+		$this->layout = 'printView';
+		
+		$this->render('printview',array(
+			'model'=>$this->loadModel($id),
 		));
 	}
 
